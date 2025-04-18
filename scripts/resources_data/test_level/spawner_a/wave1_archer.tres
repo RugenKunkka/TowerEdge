@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EnemyWaveRes" load_steps=3 format=3 uid="uid://dboacnc4131lk"]
+
+[ext_resource type="Script" uid="uid://bas36lm4qwga8" path="res://scripts/resources_scripts/EnemyWaveRes.cs" id="1_cwlf0"]
+[ext_resource type="PackedScene" uid="uid://cd62o5xauvto3" path="res://scenes/enemies/archer.tscn" id="1_fhy7e"]
+
+[resource]
+script = ExtResource("1_cwlf0")
+EnemyScene = ExtResource("1_fhy7e")
+Count = 2
+metadata/_custom_type_script = "uid://bas36lm4qwga8"
