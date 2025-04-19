@@ -55,8 +55,14 @@ public partial class Enemy : CharacterBody3D, IDamageDealer
 
     private bool canAttack=true;
 
+    Vector3 previousTargetPosition= Vector3.Zero;
+    Vector3 newTargetPosition= Vector3.Zero;
+
+    PathfindingManager pathFindingManagerInstance;
+
     public override void _Ready()
     {
+        this.pathFindingManagerInstance=PathfindingManager.INSTANCE;
         detectionRangeArea.AreaEntered += OnDetectionRangeAreaEntered;
         detectionRangeArea.AreaExited += OnDetectionRangeAreaExited;
 
@@ -102,6 +108,7 @@ public partial class Enemy : CharacterBody3D, IDamageDealer
 
     public override void _PhysicsProcess(double delta)
     {
+        //buscamos reordenar los objetivos acá para darle priorirdad a los más cercanos y no irse al más lejano en caso de haber sido el más lejano el que se encontró primero
         if (needReorderBuildingList && buildingsList.Count!=0){
             // 1. Obtener el mapa de navegación actual
             Rid mapRID = navigationRegion3D.GetNavigationMap();
@@ -139,10 +146,16 @@ public partial class Enemy : CharacterBody3D, IDamageDealer
         }
 
         //cambiamos de target acá
+        
         if(buildingsList!=null && buildingsList.Count!=0){
-            navAgent.TargetPosition = buildingsList[0].GlobalPosition;
+            newTargetPosition = buildingsList[0].GlobalPosition;
         } else {
-            navAgent.TargetPosition = targetPosition.GlobalPosition;
+            newTargetPosition = targetPosition.GlobalPosition;
+        }
+        
+        
+        if(navAgent.TargetPosition!=newTargetPosition){
+            this.pathFindingManagerInstance.suscribe(this);
         }
         
 
@@ -152,6 +165,7 @@ public partial class Enemy : CharacterBody3D, IDamageDealer
         //mover el personaje
         if (!navAgent.IsNavigationFinished() && (distanceToTarget.Length()>attackRange) )
         {
+            
             Vector3 nextPathPoint = navAgent.GetNextPathPosition()  ;
             Vector3 direction = (nextPathPoint - GlobalPosition).Normalized();
 
@@ -217,5 +231,10 @@ public partial class Enemy : CharacterBody3D, IDamageDealer
 
     public void setNavigationRegion3D(NavigationRegion3D navigationRegion3D){
         this.navigationRegion3D=navigationRegion3D;
+    }
+
+    public void updatePath(){
+        navAgent.TargetPosition=newTargetPosition;
+        previousTargetPosition=newTargetPosition;
     }
 }

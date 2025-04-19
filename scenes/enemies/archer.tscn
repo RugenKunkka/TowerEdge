@@ -110,7 +110,7 @@ _data = {
 &"RESET": SubResource("Animation_6xk8f")
 }
 
-[node name="Archer" type="CharacterBody3D" node_paths=PackedStringArray("navAgent", "attackRangeArea3d", "detectionRangeArea", "persecutionRadious", "attackCooldownTimer")]
+[node name="Archer" type="CharacterBody3D" node_paths=PackedStringArray("navAgent", "attackRangeArea3d", "detectionRangeArea", "persecutionRadious", "attackCooldownTimer", "attackAnimation")]
 transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0, 0)
 script = ExtResource("1_vlcfm")
 navAgent = NodePath("NavigationAgent3D")
@@ -118,6 +118,7 @@ attackRangeArea3d = NodePath("AttackRange")
 detectionRangeArea = NodePath("DetectionRange")
 persecutionRadious = NodePath("PersecutionRadious")
 attackCooldownTimer = NodePath("AttackCooldownTimer")
+attackAnimation = NodePath("AnimationPlayer")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
