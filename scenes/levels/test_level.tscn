@@ -1,6 +1,7 @@
-[gd_scene load_steps=58 format=3 uid="uid://cntpu60rqb3ao"]
+[gd_scene load_steps=62 format=3 uid="uid://cntpu60rqb3ao"]
 
 [ext_resource type="Script" uid="uid://cvpsm48j02i8p" path="res://addons/cyclops_level_builder/nodes/cyclops_block.gd" id="1_48ne7"]
+[ext_resource type="Script" uid="uid://dg1dxedqgfrxl" path="res://scripts/PhysicsServer3dTest.cs" id="1_eaa0b"]
 [ext_resource type="Script" uid="uid://b7lx4ix0ldkpw" path="res://addons/cyclops_level_builder/nodes/cyclops_blocks.gd" id="1_jbqir"]
 [ext_resource type="Script" uid="uid://cra2w27wq5lnh" path="res://addons/cyclops_level_builder/resources/data_vector_byte.gd" id="2_6xh4u"]
 [ext_resource type="Script" uid="uid://kc6ujqix4d2k" path="res://addons/cyclops_level_builder/resources/data_vector_int.gd" id="3_cyt5c"]
@@ -11,6 +12,11 @@
 [ext_resource type="Script" uid="uid://btercq18w5o3d" path="res://scripts/SpawnRegion.cs" id="9_2mu0v"]
 [ext_resource type="Resource" uid="uid://cl7762jyqhhqt" path="res://scripts/resources_data/test_level/spawner_a_wave1.tres" id="10_eaa0b"]
 [ext_resource type="Script" uid="uid://ptxoppiiqn1k" path="res://scripts/SpawnManager.cs" id="10_jmx14"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_eaa0b"]
+radius = 1.8125
+
+[sub_resource type="BoxMesh" id="BoxMesh_jmx14"]
 
 [sub_resource type="Environment" id="Environment_6xh4u"]
 
@@ -415,6 +421,8 @@ face_vertex_data = {
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_7x1jh"]
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_jmx14"]
+
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_cyt5c"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7x1jh"]
@@ -429,8 +437,23 @@ size = Vector3(10, 1, 5)
 
 [node name="Node3D" type="Node3D"]
 
-[node name="NavmeshManager" type="Node" parent="."]
-unique_name_in_owner = true
+[node name="PhysicsServer3DTest" type="Node3D" parent="." node_paths=PackedStringArray("visual")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4238, 3.11401, 15.1262)
+script = ExtResource("1_eaa0b")
+visual = NodePath("Visual")
+
+[node name="Area3D" type="Area3D" parent="PhysicsServer3DTest"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PhysicsServer3DTest/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.59813, 0)
+shape = SubResource("CylinderShape3D_eaa0b")
+
+[node name="Visual" type="Node3D" parent="PhysicsServer3DTest"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PhysicsServer3DTest/Visual"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_jmx14")
+skeleton = NodePath("../..")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_6xh4u")
@@ -439,7 +462,7 @@ environment = SubResource("Environment_6xh4u")
 transform = Transform3D(-0.224144, -0.5, 0.836516, -0.12941, 0.866025, 0.482963, -0.965926, -2.26673e-07, -0.258819, 38.3339, 10, 15)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.00713709, -0.442461, 0.896759, 0.00352137, 0.896788, 0.442447, -0.999968, 3.84183e-08, 0.00795853, 33.0138, 12.5558, 24.1174)
+transform = Transform3D(0.00713709, -0.442461, 0.896759, 0.00352137, 0.896788, 0.442447, -0.999968, 3.84183e-08, 0.00795853, 28.3885, 4.34035, 14.748)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_6xh4u")
@@ -464,10 +487,15 @@ script = ExtResource("1_48ne7")
 mesh_vector_data = SubResource("Resource_3s0xg")
 
 [node name="Target" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, -13)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.94275, 1, 20.1704)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Target"]
 mesh = SubResource("CylinderMesh_7x1jh")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Target"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Target/StaticBody3D"]
+shape = SubResource("CylinderShape3D_jmx14")
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 5, 20)
@@ -485,18 +513,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4323, 1, 13.9144)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.9413, 1.08118, 10.7659)
 
 [node name="Enemy" parent="." node_paths=PackedStringArray("targetPosition", "navigationRegion3D") instance=ExtResource("7_hfwtw")]
-transform = Transform3D(-0.266548, 0, -0.96382, 0, 1, 0, 0.96382, 0, -0.266548, 8.57092, 1.00006, 4.77112)
+transform = Transform3D(-0.266548, 0, -0.96382, 0, 1, 0, 0.96382, 0, -0.266548, 8.57092, 1.00006, 25.6204)
 targetPosition = NodePath("../Target")
 navigationRegion3D = NodePath("../NavigationRegion3D")
 
 [node name="SpawnRegion" type="Node3D" parent="." node_paths=PackedStringArray("spawnArea", "spawnTimerBetweenEnemies", "targetPosition", "navigationRegion")]
-transform = Transform3D(0.921775, 0, -0.387725, 0, 1, 0, 0.387725, 0, 0.921775, 5.99652, 0.157349, 305.189)
+transform = Transform3D(0.921775, 0, -0.387725, 0, 1, 0, 0.387725, 0, 0.921775, 5.997, 4.877, 20.444)
 script = ExtResource("9_2mu0v")
 spawnArea = NodePath("MeshInstance3D")
 enemyWavesList = Array[Object]([ExtResource("10_eaa0b")])
 spawnTimerBetweenEnemies = NodePath("SpawnTimerBetweenEnemies")
 targetPosition = NodePath("../Target")
 navigationRegion = NodePath("../NavigationRegion3D")
+enabledSpawner = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="SpawnRegion"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.5, -2.5)

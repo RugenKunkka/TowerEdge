@@ -37,6 +37,9 @@ public partial class SpawnRegion : Node3D
 	
 	Marker3D[] localSpawnMarker3DPoints;
 	int counterLocalSpawnMarker=0;
+
+	[Export]
+	bool enabledSpawner=false;
 	
 
 	// Called when the node enters the scene tree for the first time.
@@ -45,7 +48,9 @@ public partial class SpawnRegion : Node3D
 		spawnTimerBetweenEnemies.Timeout+=OnSpawnTimerBetweenEnemiesTimeOut;
 		creteEnemyWavesSortedList();
 		generateSpawnPoints();
-		spawnTimerBetweenEnemies.Start();
+		if(enabledSpawner){
+			spawnTimerBetweenEnemies.Start();
+		}
 	}
 
 	public void creteEnemyWavesSortedList(){

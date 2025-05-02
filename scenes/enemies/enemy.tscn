@@ -1,14 +1,18 @@
-[gd_scene load_steps=14 format=3 uid="uid://dnx6nkjmgclg4"]
+[gd_scene load_steps=17 format=3 uid="uid://dnx6nkjmgclg4"]
 
 [ext_resource type="Script" uid="uid://dhu7fri88ogm6" path="res://scripts/Enemy.cs" id="1_6xk8f"]
 [ext_resource type="Script" uid="uid://lse3wakd7315" path="res://scripts/HitBox.cs" id="2_8e3ao"]
+[ext_resource type="Script" uid="uid://davfneeudne1f" path="res://scripts/EnemyDebugLabel.cs" id="2_38ino"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cyt5c"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_8e3ao"]
+viewport_path = NodePath("Sprite3D/SubViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8e3ao"]
 albedo_color = Color(0.407843, 0.647059, 1, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_7x1jh"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_8e3ao"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6xh4u"]
 size = Vector3(1, 0.394043, 1)
@@ -110,29 +114,54 @@ _data = {
 &"RESET": SubResource("Animation_6xk8f")
 }
 
-[node name="Enemy" type="CharacterBody3D" node_paths=PackedStringArray("navAgent", "attackRangeArea3d", "detectionRangeArea", "persecutionRadious", "attackCooldownTimer", "attackAnimation")]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8e3ao"]
+
+[node name="Enemy" type="CharacterBody3D" node_paths=PackedStringArray("navAgent", "attackRangeArea3d", "detectionRangeArea", "persecutionRadious", "attackCooldownTimer", "attackAnimation", "debugLabel")]
 transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0, 0)
+collision_layer = 17
+collision_mask = 17
 script = ExtResource("1_6xk8f")
 speed = 4.0
 navAgent = NodePath("NavigationAgent3D")
-turnSpeed = 3.0
+turnSpeed = 8.0
+minTurnSpeed = 6.0
 attackRangeArea3d = NodePath("AttackRange")
 detectionRangeArea = NodePath("DetectionRange")
 persecutionRadious = NodePath("PersecutionRadious")
 attackCooldownTimer = NodePath("AttackCooldownTimer")
 attackAnimation = NodePath("AnimationPlayer")
+debugLabel = NodePath("Sprite3D")
+detectionFlockingRadius = 3.0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource("CapsuleShape3D_cyt5c")
+[node name="Sprite3D" type="Sprite3D" parent="." node_paths=PackedStringArray("label")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 3, 0)
+texture = SubResource("ViewportTexture_8e3ao")
+script = ExtResource("2_38ino")
+label = NodePath("SubViewport/Label")
+
+[node name="SubViewport" type="SubViewport" parent="Sprite3D"]
+transparent_bg = true
+
+[node name="Label" type="Label" parent="Sprite3D/SubViewport"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 35
+text = "aaaaaaaaaaaa"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 material_override = SubResource("StandardMaterial3D_8e3ao")
 mesh = SubResource("CapsuleMesh_7x1jh")
 
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.334267, 0, 0, 0, 0.466005, 0, 1.43097, -0.405548)
+mesh = SubResource("BoxMesh_8e3ao")
+
 [node name="HitBox" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+collision_layer = 16
+collision_mask = 17
+monitorable = false
 script = ExtResource("2_8e3ao")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HitBox"]
@@ -151,6 +180,8 @@ debug_enabled = true
 
 [node name="DetectionRange" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+collision_layer = 16
+monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionRange"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0505372, 0)
@@ -159,6 +190,8 @@ debug_color = Color(0.764706, 0.447059, 0.0941176, 0.807843)
 
 [node name="PersecutionRadious" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+collision_layer = 16
+monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PersecutionRadious"]
 shape = SubResource("CylinderShape3D_7x1jh")
@@ -166,6 +199,8 @@ debug_color = Color(0.924431, 0.181294, 0.518813, 0.42)
 
 [node name="AttackRange" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+collision_layer = 16
+monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AttackRange"]
 shape = SubResource("CylinderShape3D_hfwtw")
@@ -184,3 +219,7 @@ libraries = {
 
 [node name="AttackCooldownTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_8e3ao")

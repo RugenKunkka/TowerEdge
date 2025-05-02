@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=3 uid="uid://dtt6jqhuemel3"]
+
+[ext_resource type="Script" uid="uid://dbrboiq76rt56" path="res://AgentsAI/levels/AgentAI.cs" id="1_pkygd"]
+[ext_resource type="Script" uid="uid://davfneeudne1f" path="res://scripts/EnemyDebugLabel.cs" id="2_m18hi"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rjqix"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_rjqix"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_rjqix"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_rjqix"]
+radius = 1.5
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_3ae1e"]
+viewport_path = NodePath("Sprite3D/SubViewport")
+
+[node name="AgentAI" type="CharacterBody3D" node_paths=PackedStringArray("debugLabel", "area")]
+script = ExtResource("1_pkygd")
+debugLabel = NodePath("Sprite3D/SubViewport/Label")
+seekFactor = 1.6
+separationFactor = 2.14
+maxSeparationForce = 1.0
+avoidanceFactor = 0.0
+maxSpeed = 3.6
+area = NodePath("SeparationArea")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_rjqix")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_rjqix")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.406418, 0, 0, 0, 0.60499, 0, 1.37201, -0.483521)
+mesh = SubResource("BoxMesh_rjqix")
+
+[node name="SeparationArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SeparationArea"]
+shape = SubResource("CylinderShape3D_rjqix")
+
+[node name="Sprite3D" type="Sprite3D" parent="." node_paths=PackedStringArray("label")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 3, 0)
+texture = SubResource("ViewportTexture_3ae1e")
+script = ExtResource("2_m18hi")
+label = NodePath("SubViewport/Label")
+
+[node name="SubViewport" type="SubViewport" parent="Sprite3D"]
+transparent_bg = true
+size = Vector2i(1024, 512)
+
+[node name="Label" type="Label" parent="Sprite3D/SubViewport"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 35
+text = "aaaaaaaaaaaa"

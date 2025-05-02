@@ -56,7 +56,7 @@ public partial class PathfindingManager : Node
 		int elementsToProcess=elementsToProcess=Math.Min(agentsList.Count,quantityEnemyToProcess);
 		
 		for(int i=0;i<elementsToProcess;i++){
-			GD.Print($"[{timestamp}] Se movió el enemigo: []");
+			//GD.Print($"[{timestamp}] Se movió el enemigo: []");
 			agentsList[i].updatePath();
 		}
 

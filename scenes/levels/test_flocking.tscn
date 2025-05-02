@@ -1,0 +1,125 @@
+[gd_scene load_steps=9 format=3 uid="uid://bg4lwqonlscky"]
+
+[ext_resource type="PackedScene" uid="uid://deq63kfs27dae" path="res://scenes/enemies/avoid_enemy.tscn" id="1_45y12"]
+[ext_resource type="Script" uid="uid://2p8jmwer0qio" path="res://scripts/tests_scripts/TestAgent.cs" id="1_l0kq5"]
+[ext_resource type="PackedScene" uid="uid://cfdh2gwneol2o" path="res://scenes/buildings/house.tscn" id="3_mgsg2"]
+
+[sub_resource type="Environment" id="Environment_uuepl"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_uuepl"]
+vertices = PackedVector3Array(-9.5, 0.5, -9.5, -9.5, 0.5, 9.5, 9.5, 0.5, 9.5, 9.5, 0.5, -9.5)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_e3pvg"]
+size = Vector2(20, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mgsg2"]
+size = Vector3(22.5193, 2.58093, 32.9047)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_45y12"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_uuepl")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.224144, -0.5, 0.836516, -0.12941, 0.866025, 0.482963, -0.965926, -2.26673e-07, -0.258819, 38.3339, 10, 15)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.999968, -2.10281e-08, -0.00795858, 0.00540026, 0.734559, 0.678523, 0.00584603, -0.678544, 0.734536, 1.06483, 10.2633, 12.3082)
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_uuepl")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D"]
+mesh = SubResource("PlaneMesh_e3pvg")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.798218, -1.26862, -0.188812)
+shape = SubResource("BoxShape3D_mgsg2")
+
+[node name="AvoidEnemies" type="Node3D" parent="."]
+
+[node name="AvoidEnemy" parent="AvoidEnemies" node_paths=PackedStringArray("targetNode") instance=ExtResource("1_45y12")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.576, 0, 0)
+targetNode = NodePath("../../Player")
+
+[node name="AvoidEnemy2" parent="AvoidEnemies" node_paths=PackedStringArray("targetNode") instance=ExtResource("1_45y12")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.94123, 0, 1.9325)
+targetNode = NodePath("../../Player")
+
+[node name="AvoidEnemy3" parent="AvoidEnemies" node_paths=PackedStringArray("targetNode") instance=ExtResource("1_45y12")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.94671, 0, 0)
+targetNode = NodePath("../../Player")
+
+[node name="Player" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.20309, 0, 0.153069)
+script = ExtResource("1_l0kq5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CylinderMesh_45y12")
+
+[node name="Enemies" type="Node3D" parent="."]
+
+[node name="Buildings" type="Node3D" parent="."]
+
+[node name="House" parent="Buildings" instance=ExtResource("3_mgsg2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.82275)
+
+[node name="House2" parent="Buildings" instance=ExtResource("3_mgsg2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.56544)
+
+[node name="House3" parent="Buildings" instance=ExtResource("3_mgsg2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.82275)
+
+[node name="House4" parent="Buildings" instance=ExtResource("3_mgsg2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.43456)
+
+[node name="House5" parent="Buildings" instance=ExtResource("3_mgsg2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.17725)
+
+[node name="House6" parent="Buildings" instance=ExtResource("3_mgsg2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.43456)
+
+[node name="quilombo" type="Node3D" parent="."]
+
+[node name="AvoidEnemy" parent="." node_paths=PackedStringArray("targetNode") instance=ExtResource("1_45y12")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.93039, 0.0217285, -3.68713)
+targetNode = NodePath("../Player")
+
+[node name="AvoidEnemy2" parent="." node_paths=PackedStringArray("targetNode") instance=ExtResource("1_45y12")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.86856, 0.0217285, 1.55481)
+targetNode = NodePath("../Player")
+
+[node name="AvoidEnemy3" parent="." node_paths=PackedStringArray("targetNode") instance=ExtResource("1_45y12")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.17233, 0.0217285, -3.46875)
+targetNode = NodePath("../Player")
+
+[node name="AvoidEnemy4" parent="." node_paths=PackedStringArray("targetNode") instance=ExtResource("1_45y12")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.86108, 0.0216064, -7.76099)
+targetNode = NodePath("../Player")
+
+[node name="AvoidEnemy5" parent="." node_paths=PackedStringArray("targetNode") instance=ExtResource("1_45y12")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.92761, 0.0216064, -8.34204)
+targetNode = NodePath("../Player")
+
+[node name="AvoidEnemy6" parent="." node_paths=PackedStringArray("targetNode") instance=ExtResource("1_45y12")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.84418, 0.0217285, 4.77515)
+targetNode = NodePath("../Player")
+
+[node name="AvoidEnemy7" parent="." node_paths=PackedStringArray("targetNode") instance=ExtResource("1_45y12")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.952, 0.0216064, -1.0105)
+targetNode = NodePath("../Player")
+
+[node name="AvoidEnemy8" parent="." node_paths=PackedStringArray("targetNode") instance=ExtResource("1_45y12")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.80746, 0.0217285, 3.89404)
+targetNode = NodePath("../Player")
+
+[node name="AvoidEnemy9" parent="." node_paths=PackedStringArray("targetNode") instance=ExtResource("1_45y12")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.0392, 0.0217285, 7.18042)
+targetNode = NodePath("../Player")
+avoidForce = 6.0

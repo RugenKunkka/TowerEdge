@@ -1,0 +1,584 @@
+[gd_scene load_steps=8 format=3 uid="uid://c51e6rguos4xq"]
+
+[ext_resource type="PackedScene" uid="uid://cfdh2gwneol2o" path="res://scenes/buildings/house.tscn" id="1_xmfvd"]
+[ext_resource type="Script" uid="uid://2p8jmwer0qio" path="res://scripts/tests_scripts/TestAgent.cs" id="2_vkdh1"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_vanr7"]
+size = Vector2(20, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vanr7"]
+size = Vector3(5, 1, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xmfvd"]
+size = Vector3(5, 1, 5)
+
+[sub_resource type="Environment" id="Environment_vkdh1"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_xmfvd"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Map" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -10)
+mesh = SubResource("PlaneMesh_vanr7")
+
+[node name="Chunks" type="Node3D" parent="."]
+
+[node name="Chunk1" type="Node3D" parent="Chunks"]
+
+[node name="Area3D" type="Area3D" parent="Chunks/Chunk1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Chunks/Chunk1/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -2.5)
+shape = SubResource("BoxShape3D_vanr7")
+debug_color = Color(0.768627, 0.443137, 0.180392, 0.917647)
+
+[node name="Chunk2" type="Node3D" parent="Chunks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+
+[node name="Area3D" type="Area3D" parent="Chunks/Chunk2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Chunks/Chunk2/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -2.5)
+shape = SubResource("BoxShape3D_xmfvd")
+debug_color = Color(0, 0.6, 0.701961, 0.87451)
+
+[node name="Chunk3" type="Node3D" parent="Chunks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
+
+[node name="Area3D" type="Area3D" parent="Chunks/Chunk3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Chunks/Chunk3/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -2.5)
+shape = SubResource("BoxShape3D_vanr7")
+debug_color = Color(0.768627, 0.443137, 0.180392, 0.917647)
+
+[node name="Chunk4" type="Node3D" parent="Chunks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 0)
+
+[node name="Area3D" type="Area3D" parent="Chunks/Chunk4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Chunks/Chunk4/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -2.5)
+shape = SubResource("BoxShape3D_xmfvd")
+debug_color = Color(0, 0.6, 0.701961, 0.87451)
+
+[node name="Chunk5" type="Node3D" parent="Chunks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+
+[node name="Area3D" type="Area3D" parent="Chunks/Chunk5"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Chunks/Chunk5/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -2.5)
+shape = SubResource("BoxShape3D_xmfvd")
+debug_color = Color(0, 0.6, 0.701961, 0.87451)
+
+[node name="Chunk6" type="Node3D" parent="Chunks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -5)
+
+[node name="Area3D" type="Area3D" parent="Chunks/Chunk6"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Chunks/Chunk6/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -2.5)
+shape = SubResource("BoxShape3D_vanr7")
+debug_color = Color(0.768627, 0.443137, 0.180392, 0.917647)
+
+[node name="Chunk7" type="Node3D" parent="Chunks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -5)
+
+[node name="Area3D" type="Area3D" parent="Chunks/Chunk7"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Chunks/Chunk7/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -2.5)
+shape = SubResource("BoxShape3D_xmfvd")
+debug_color = Color(0, 0.6, 0.701961, 0.87451)
+
+[node name="Chunk8" type="Node3D" parent="Chunks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, -5)
+
+[node name="Area3D" type="Area3D" parent="Chunks/Chunk8"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Chunks/Chunk8/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -2.5)
+shape = SubResource("BoxShape3D_vanr7")
+debug_color = Color(0.768627, 0.443137, 0.180392, 0.917647)
+
+[node name="Chunk9" type="Node3D" parent="Chunks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+
+[node name="Area3D" type="Area3D" parent="Chunks/Chunk9"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Chunks/Chunk9/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -2.5)
+shape = SubResource("BoxShape3D_vanr7")
+debug_color = Color(0.768627, 0.443137, 0.180392, 0.917647)
+
+[node name="Chunk10" type="Node3D" parent="Chunks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -10)
+
+[node name="Area3D" type="Area3D" parent="Chunks/Chunk10"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Chunks/Chunk10/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -2.5)
+shape = SubResource("BoxShape3D_xmfvd")
+debug_color = Color(0, 0.6, 0.701961, 0.87451)
+
+[node name="Chunk11" type="Node3D" parent="Chunks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -10)
+
+[node name="Area3D" type="Area3D" parent="Chunks/Chunk11"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Chunks/Chunk11/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -2.5)
+shape = SubResource("BoxShape3D_vanr7")
+debug_color = Color(0.768627, 0.443137, 0.180392, 0.917647)
+
+[node name="Chunk12" type="Node3D" parent="Chunks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, -10)
+
+[node name="Area3D" type="Area3D" parent="Chunks/Chunk12"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Chunks/Chunk12/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -2.5)
+shape = SubResource("BoxShape3D_xmfvd")
+debug_color = Color(0, 0.6, 0.701961, 0.87451)
+
+[node name="Chunk13" type="Node3D" parent="Chunks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15)
+
+[node name="Area3D" type="Area3D" parent="Chunks/Chunk13"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Chunks/Chunk13/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -2.5)
+shape = SubResource("BoxShape3D_xmfvd")
+debug_color = Color(0, 0.6, 0.701961, 0.87451)
+
+[node name="Chunk14" type="Node3D" parent="Chunks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -15)
+
+[node name="Area3D" type="Area3D" parent="Chunks/Chunk14"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Chunks/Chunk14/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -2.5)
+shape = SubResource("BoxShape3D_vanr7")
+debug_color = Color(0.768627, 0.443137, 0.180392, 0.917647)
+
+[node name="Chunk15" type="Node3D" parent="Chunks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -15)
+
+[node name="Area3D" type="Area3D" parent="Chunks/Chunk15"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Chunks/Chunk15/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -2.5)
+shape = SubResource("BoxShape3D_xmfvd")
+debug_color = Color(0, 0.6, 0.701961, 0.87451)
+
+[node name="Chunk16" type="Node3D" parent="Chunks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, -15)
+
+[node name="Area3D" type="Area3D" parent="Chunks/Chunk16"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Chunks/Chunk16/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -2.5)
+shape = SubResource("BoxShape3D_vanr7")
+debug_color = Color(0.768627, 0.443137, 0.180392, 0.917647)
+
+[node name="Buildings" type="Node3D" parent="."]
+
+[node name="Group1" type="Node3D" parent="Buildings"]
+
+[node name="House" parent="Buildings/Group1" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.32196, 0, -0.81409)
+
+[node name="House2" parent="Buildings/Group1" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.00476, 0, -0.61646)
+
+[node name="House3" parent="Buildings/Group1" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.53131, 0, -2.64258)
+
+[node name="House4" parent="Buildings/Group1" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.68104, -0.0333252, -1.88725)
+
+[node name="House5" parent="Buildings/Group1" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.634, 0, -4.27745)
+
+[node name="House6" parent="Buildings/Group1" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.346, 0, -3.6415)
+
+[node name="House7" parent="Buildings/Group1" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.04053, 0, -2.37512)
+
+[node name="House8" parent="Buildings/Group1" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.151, -0.0333252, -0.78242)
+
+[node name="House9" parent="Buildings/Group1" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.578471, 0, -3.62396)
+
+[node name="House10" parent="Buildings/Group1" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.63141, 0, -4.33242)
+
+[node name="House11" parent="Buildings/Group1" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.84778, 0, -4.73974)
+
+[node name="House12" parent="Buildings/Group1" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.01123, 0, -1.35559)
+
+[node name="House13" parent="Buildings/Group1" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.74699, 0, -2.9312)
+
+[node name="Group2" type="Node3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+
+[node name="House" parent="Buildings/Group2" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.32196, 0, -0.81409)
+
+[node name="House2" parent="Buildings/Group2" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.00476, 0, -0.61646)
+
+[node name="House3" parent="Buildings/Group2" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.53131, 0, -2.64258)
+
+[node name="House4" parent="Buildings/Group2" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.68104, -0.0333252, -1.88725)
+
+[node name="House5" parent="Buildings/Group2" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.634, 0, -4.27745)
+
+[node name="House6" parent="Buildings/Group2" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.346, 0, -3.6415)
+
+[node name="House7" parent="Buildings/Group2" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.04053, 0, -2.37512)
+
+[node name="House8" parent="Buildings/Group2" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.151, -0.0333252, -0.78242)
+
+[node name="House9" parent="Buildings/Group2" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.578471, 0, -3.62396)
+
+[node name="House10" parent="Buildings/Group2" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.63141, 0, -4.33242)
+
+[node name="House11" parent="Buildings/Group2" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.84778, 0, -4.73974)
+
+[node name="House12" parent="Buildings/Group2" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.01123, 0, -1.35559)
+
+[node name="House13" parent="Buildings/Group2" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.74699, 0, -2.9312)
+
+[node name="Group3" type="Node3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -11)
+
+[node name="House" parent="Buildings/Group3" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.32196, 0, -0.81409)
+
+[node name="House2" parent="Buildings/Group3" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.00476, 0, -0.61646)
+
+[node name="House3" parent="Buildings/Group3" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.53131, 0, -2.64258)
+
+[node name="House4" parent="Buildings/Group3" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.68104, -0.0333252, -1.88725)
+
+[node name="House5" parent="Buildings/Group3" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.634, 0, -4.27745)
+
+[node name="House6" parent="Buildings/Group3" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.346, 0, -3.6415)
+
+[node name="House7" parent="Buildings/Group3" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.04053, 0, -2.37512)
+
+[node name="House8" parent="Buildings/Group3" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.151, -0.0333252, -0.78242)
+
+[node name="House9" parent="Buildings/Group3" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.578471, 0, -3.62396)
+
+[node name="House10" parent="Buildings/Group3" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.63141, 0, -4.33242)
+
+[node name="House11" parent="Buildings/Group3" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.84778, 0, -4.73974)
+
+[node name="House12" parent="Buildings/Group3" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.01123, 0, -1.35559)
+
+[node name="House13" parent="Buildings/Group3" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.74699, 0, -2.9312)
+
+[node name="Group4" type="Node3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -16)
+
+[node name="House" parent="Buildings/Group4" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.32196, 0, -0.81409)
+
+[node name="House2" parent="Buildings/Group4" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.00476, 0, -0.61646)
+
+[node name="House3" parent="Buildings/Group4" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.53131, 0, -2.64258)
+
+[node name="House4" parent="Buildings/Group4" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.68104, -0.0333252, -1.88725)
+
+[node name="House5" parent="Buildings/Group4" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.634, 0, -4.27745)
+
+[node name="House6" parent="Buildings/Group4" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.346, 0, -3.6415)
+
+[node name="House7" parent="Buildings/Group4" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.04053, 0, -2.37512)
+
+[node name="House8" parent="Buildings/Group4" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.151, -0.0333252, -0.78242)
+
+[node name="House9" parent="Buildings/Group4" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.578471, 0, -3.62396)
+
+[node name="House10" parent="Buildings/Group4" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.63141, 0, -4.33242)
+
+[node name="House11" parent="Buildings/Group4" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.84778, 0, -4.73974)
+
+[node name="House12" parent="Buildings/Group4" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.01123, 0, -1.35559)
+
+[node name="House13" parent="Buildings/Group4" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.74699, 0, -2.9312)
+
+[node name="Group5" type="Node3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+
+[node name="House" parent="Buildings/Group5" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.32196, 0, -0.81409)
+
+[node name="House2" parent="Buildings/Group5" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.00476, 0, -0.61646)
+
+[node name="House3" parent="Buildings/Group5" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.53131, 0, -2.64258)
+
+[node name="House4" parent="Buildings/Group5" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.68104, -0.0333252, -1.88725)
+
+[node name="House5" parent="Buildings/Group5" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.634, 0, -4.27745)
+
+[node name="House6" parent="Buildings/Group5" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.346, 0, -3.6415)
+
+[node name="House7" parent="Buildings/Group5" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.04053, 0, -2.37512)
+
+[node name="House8" parent="Buildings/Group5" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.151, -0.0333252, -0.78242)
+
+[node name="House9" parent="Buildings/Group5" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.578471, 0, -3.62396)
+
+[node name="House10" parent="Buildings/Group5" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.63141, 0, -4.33242)
+
+[node name="House11" parent="Buildings/Group5" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.84778, 0, -4.73974)
+
+[node name="House12" parent="Buildings/Group5" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.01123, 0, -1.35559)
+
+[node name="House13" parent="Buildings/Group5" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.74699, 0, -2.9312)
+
+[node name="Group6" type="Node3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -5)
+
+[node name="House" parent="Buildings/Group6" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.32196, 0, -0.81409)
+
+[node name="House2" parent="Buildings/Group6" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.00476, 0, -0.61646)
+
+[node name="House3" parent="Buildings/Group6" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.53131, 0, -2.64258)
+
+[node name="House4" parent="Buildings/Group6" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.68104, -0.0333252, -1.88725)
+
+[node name="House5" parent="Buildings/Group6" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.634, 0, -4.27745)
+
+[node name="House6" parent="Buildings/Group6" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.346, 0, -3.6415)
+
+[node name="House7" parent="Buildings/Group6" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.04053, 0, -2.37512)
+
+[node name="House8" parent="Buildings/Group6" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.151, -0.0333252, -0.78242)
+
+[node name="House9" parent="Buildings/Group6" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.578471, 0, -3.62396)
+
+[node name="House10" parent="Buildings/Group6" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.63141, 0, -4.33242)
+
+[node name="House11" parent="Buildings/Group6" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.84778, 0, -4.73974)
+
+[node name="House12" parent="Buildings/Group6" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.01123, 0, -1.35559)
+
+[node name="House13" parent="Buildings/Group6" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.74699, 0, -2.9312)
+
+[node name="Group7" type="Node3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -11)
+
+[node name="House" parent="Buildings/Group7" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.32196, 0, -0.81409)
+
+[node name="House2" parent="Buildings/Group7" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.00476, 0, -0.61646)
+
+[node name="House3" parent="Buildings/Group7" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.53131, 0, -2.64258)
+
+[node name="House4" parent="Buildings/Group7" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.68104, -0.0333252, -1.88725)
+
+[node name="House5" parent="Buildings/Group7" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.634, 0, -4.27745)
+
+[node name="House6" parent="Buildings/Group7" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.346, 0, -3.6415)
+
+[node name="House7" parent="Buildings/Group7" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.04053, 0, -2.37512)
+
+[node name="House8" parent="Buildings/Group7" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.151, -0.0333252, -0.78242)
+
+[node name="House9" parent="Buildings/Group7" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.578471, 0, -3.62396)
+
+[node name="House10" parent="Buildings/Group7" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.63141, 0, -4.33242)
+
+[node name="House11" parent="Buildings/Group7" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.84778, 0, -4.73974)
+
+[node name="House12" parent="Buildings/Group7" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.01123, 0, -1.35559)
+
+[node name="House13" parent="Buildings/Group7" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.74699, 0, -2.9312)
+
+[node name="Group8" type="Node3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -16)
+
+[node name="House" parent="Buildings/Group8" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.32196, 0, -0.81409)
+
+[node name="House2" parent="Buildings/Group8" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.00476, 0, -0.61646)
+
+[node name="House3" parent="Buildings/Group8" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.53131, 0, -2.64258)
+
+[node name="House4" parent="Buildings/Group8" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.68104, -0.0333252, -1.88725)
+
+[node name="House5" parent="Buildings/Group8" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.634, 0, -4.27745)
+
+[node name="House6" parent="Buildings/Group8" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.346, 0, -3.6415)
+
+[node name="House7" parent="Buildings/Group8" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.04053, 0, -2.37512)
+
+[node name="House8" parent="Buildings/Group8" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.151, -0.0333252, -0.78242)
+
+[node name="House9" parent="Buildings/Group8" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.578471, 0, -3.62396)
+
+[node name="House10" parent="Buildings/Group8" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.63141, 0, -4.33242)
+
+[node name="House11" parent="Buildings/Group8" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.84778, 0, -4.73974)
+
+[node name="House12" parent="Buildings/Group8" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.01123, 0, -1.35559)
+
+[node name="House13" parent="Buildings/Group8" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.74699, 0, -2.9312)
+
+[node name="Group9" type="Node3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
+
+[node name="House" parent="Buildings/Group9" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.32196, 0, -0.81409)
+
+[node name="House2" parent="Buildings/Group9" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.00476, 0, -0.61646)
+
+[node name="House3" parent="Buildings/Group9" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.53131, 0, -2.64258)
+
+[node name="House4" parent="Buildings/Group9" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.68104, -0.0333252, -1.88725)
+
+[node name="House5" parent="Buildings/Group9" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.634, 0, -4.27745)
+
+[node name="House6" parent="Buildings/Group9" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.346, 0, -3.6415)
+
+[node name="House7" parent="Buildings/Group9" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.04053, 0, -2.37512)
+
+[node name="House8" parent="Buildings/Group9" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.151, -0.0333252, -0.78242)
+
+[node name="House9" parent="Buildings/Group9" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.578471, 0, -3.62396)
+
+[node name="House10" parent="Buildings/Group9" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.63141, 0, -4.33242)
+
+[node name="House11" parent="Buildings/Group9" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.84778, 0, -4.73974)
+
+[node name="House12" parent="Buildings/Group9" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.01123, 0, -1.35559)
+
+[node name="House13" parent="Buildings/Group9" instance=ExtResource("1_xmfvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.74699, 0, -2.9312)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_vkdh1")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.0334933, 0.482963, -0.875, -0.12941, 0.866025, 0.482963, 0.991025, 0.12941, 0.0334942, 32.019, 10, -7.021)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.999968, -8.53375e-08, -0.0079584, 0.00352136, 0.896788, 0.442447, 0.00713696, -0.442461, 0.896759, 6.3885, 4.34035, 3.72664)
+
+[node name="Agents" type="Node3D" parent="."]
+
+[node name="Player" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.2031, 0, -8.04651)
+script = ExtResource("2_vkdh1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CylinderMesh_xmfvd")

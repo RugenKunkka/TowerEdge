@@ -2,7 +2,7 @@ using Godot;
 using System;
 
 //condicion hitbox y hurtbox.. los padres deben ser quienes tiene lso stasts y reciben lso daños.. si no.. nunk va a andar
-public partial class HurtBox : Area3D
+public partial class HurtBox : StaticBody3D
 {
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
