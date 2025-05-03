@@ -59,16 +59,6 @@ public partial class AgentAI : CharacterBody3D
 			separationForce=separationForce*separationFactor;
 			separationForce=clampedVector3(separationForce,maxSeparationForce);
 			
-			/*float umbral=0.35f;
-			//separationForce=Vector3.Zero;
-			if(separationForce!=Vector3.Zero && (this.Velocity.Length()>umbral || this.Velocity.Length()<-umbral)) {
-				separationForce= new Vector3(-seekForce.X*1.40f,0,0);
-			} else if (separationForce!=Vector3.Zero && this.Velocity.Length()>-umbral && this.Velocity.Length()<umbral){
-				separationForce=new Vector3(-seekForce.X,0,0);
-			}*/
-
-			
-			//separationForce=clampedVector3(separationForce,maxSeparationForce);
 
 			Vector3 avoidanceForce=this.avoidanceForce();
 			avoidanceForce=avoidanceForce*avoidanceFactor;
@@ -183,4 +173,9 @@ public partial class AgentAI : CharacterBody3D
 		} 
 		return vector;
 	}
+
+
+
+
+
 }

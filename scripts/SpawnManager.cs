@@ -4,8 +4,7 @@ using System.Collections.Generic;
 
 public partial class SpawnManager : Node3D
 {
-	[Export]
-	Godot.Collections.Array<SpawnRegion> spawnRegionsList;
+	[Export] Godot.Collections.Array<SpawnRegion> spawnRegionsList;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{/*

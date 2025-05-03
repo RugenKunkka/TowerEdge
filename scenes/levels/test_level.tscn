@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://cntpu60rqb3ao"]
+[gd_scene load_steps=59 format=3 uid="uid://cntpu60rqb3ao"]
 
 [ext_resource type="Script" uid="uid://cvpsm48j02i8p" path="res://addons/cyclops_level_builder/nodes/cyclops_block.gd" id="1_48ne7"]
 [ext_resource type="Script" uid="uid://dg1dxedqgfrxl" path="res://scripts/PhysicsServer3dTest.cs" id="1_eaa0b"]
@@ -9,9 +9,8 @@
 [ext_resource type="Script" uid="uid://dp2vcvaulx6g2" path="res://addons/cyclops_level_builder/resources/mesh_vector_data.gd" id="5_hfwtw"]
 [ext_resource type="PackedScene" uid="uid://dnx6nkjmgclg4" path="res://scenes/enemies/enemy.tscn" id="7_hfwtw"]
 [ext_resource type="PackedScene" uid="uid://cfdh2gwneol2o" path="res://scenes/buildings/house.tscn" id="8_7x1jh"]
-[ext_resource type="Script" uid="uid://btercq18w5o3d" path="res://scripts/SpawnRegion.cs" id="9_2mu0v"]
-[ext_resource type="Resource" uid="uid://cl7762jyqhhqt" path="res://scripts/resources_data/test_level/spawner_a_wave1.tres" id="10_eaa0b"]
-[ext_resource type="Script" uid="uid://ptxoppiiqn1k" path="res://scripts/SpawnManager.cs" id="10_jmx14"]
+[ext_resource type="PackedScene" uid="uid://dba2nrc2v71io" path="res://scenes/spawn_region.tscn" id="10_jmx14"]
+[ext_resource type="PackedScene" uid="uid://clskc7e0x3aoj" path="res://scenes/spawn_manager.tscn" id="11_eaa0b"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_eaa0b"]
 radius = 1.8125
@@ -427,14 +426,6 @@ face_vertex_data = {
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7x1jh"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7x1jh"]
-transparency = 1
-albedo_color = Color(0.235294, 0.345098, 0.839216, 0.580392)
-
-[sub_resource type="BoxMesh" id="BoxMesh_hfwtw"]
-material = SubResource("StandardMaterial3D_7x1jh")
-size = Vector3(10, 1, 5)
-
 [node name="Node3D" type="Node3D"]
 
 [node name="PhysicsServer3DTest" type="Node3D" parent="." node_paths=PackedStringArray("visual")]
@@ -512,29 +503,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4323, 1, 13.9144)
 [node name="House2" parent="." instance=ExtResource("8_7x1jh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.9413, 1.08118, 10.7659)
 
-[node name="Enemy" parent="." node_paths=PackedStringArray("targetPosition", "navigationRegion3D") instance=ExtResource("7_hfwtw")]
+[node name="Enemy" parent="." node_paths=PackedStringArray("navigationRegion3D") instance=ExtResource("7_hfwtw")]
 transform = Transform3D(-0.266548, 0, -0.96382, 0, 1, 0, 0.96382, 0, -0.266548, 8.57092, 1.00006, 25.6204)
-targetPosition = NodePath("../Target")
 navigationRegion3D = NodePath("../NavigationRegion3D")
 
-[node name="SpawnRegion" type="Node3D" parent="." node_paths=PackedStringArray("spawnArea", "spawnTimerBetweenEnemies", "targetPosition", "navigationRegion")]
+[node name="SpawnRegion" parent="." instance=ExtResource("10_jmx14")]
 transform = Transform3D(0.921775, 0, -0.387725, 0, 1, 0, 0.387725, 0, 0.921775, 5.997, 4.877, 20.444)
-script = ExtResource("9_2mu0v")
-spawnArea = NodePath("MeshInstance3D")
-enemyWavesList = Array[Object]([ExtResource("10_eaa0b")])
-spawnTimerBetweenEnemies = NodePath("SpawnTimerBetweenEnemies")
-targetPosition = NodePath("../Target")
-navigationRegion = NodePath("../NavigationRegion3D")
-enabledSpawner = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SpawnRegion"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.5, -2.5)
-mesh = SubResource("BoxMesh_hfwtw")
-
-[node name="SpawnTimerBetweenEnemies" type="Timer" parent="SpawnRegion"]
-wait_time = 0.3
-one_shot = true
-
-[node name="SpawnManager" type="Node3D" parent="." node_paths=PackedStringArray("spawnRegionsList")]
-script = ExtResource("10_jmx14")
-spawnRegionsList = [NodePath("../SpawnRegion")]
+[node name="SpawnManager" parent="." instance=ExtResource("11_eaa0b")]

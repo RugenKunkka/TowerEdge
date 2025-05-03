@@ -5,82 +5,50 @@ using System.Linq;
 
 public partial class Enemy : CharacterBody3D, IDamageDealer
 {
-	[Export]
-    public Node3D targetPosition;
-    [Export]
-    NavigationRegion3D navigationRegion3D;
+    [Export] NavigationRegion3D navigationRegion3D;
+    [Export] Node3D targetNode;
+	[Export] Label debugLabel;
 
-    [Export] public float Gravity = 20.0f;
+	[Export] float steeringFactor=2.0f;
+	[Export] float maxSteering=1.5f;//es pequeña xq no queres que pase de 0 a 70 en un solo frame, es como la ACELERACION POR FRAME
 
-    [Export]
-    public float speed = 5.0f;
+	[Export(PropertyHint.Range, "0,4,0.1")] float seekFactor=0.7f;
+	[Export(PropertyHint.Range, "0,2,0.02")] float maxSeekForce=1.02f;
 
-    [Export]
-    public float acceleration = 10.0f;
+	[Export(PropertyHint.Range, "0,4,0.01")] float separationFactor=2.07f;
+	[Export(PropertyHint.Range, "0,3,0.02")] float maxSeparationForce=0.98f;
 
-    [Export]
-    private NavigationAgent3D navAgent;
+	[Export(PropertyHint.Range, "0,4,0.01")] float avoidanceFactor=2.07f;
+	[Export(PropertyHint.Range, "0,3,0.02")] float maxAvoidanceForce=1.04f;
 
-    [Export]
-    float turnSpeed = 2.0f;
-    [Export]
-    float minTurnSpeed = 1.0f; // velocidad mínima en rad/s
-    [Export]
-    float angleTolerance=2.0f;
-    [Export]
-    Area3D attackRangeArea3d;
-    [Export]
-    Area3D detectionRangeArea;
-    [Export]
-    Area3D persecutionRadious;
-    [Export]
-    float attackRange=1.7f;
-    [Export]
-    Timer attackCooldownTimer;
+	[Export(PropertyHint.Range, "0,5,0.2")] float maxSpeed=1.4f;
+	[Export] float avoidForce=8.0f;
+    [Export] Timer attackCooldownTimer;
+    [Export] NavigationAgent3D navAgent;
+
+	[Export] Area3D area;
+    [Export] float damage = 1.0f;
+
+	SpatialHashMapping spatialHashMapping;
+    PathfindingManager pathFindingManagerInstance;
 
     List<House> buildingsList;
-
     EnumEnemyStates currentState;
-
-    [Export]
-    AnimationPlayer attackAnimation;
-
-    [Export]
-    float damage =2.0f;
-    [Export]
-    EnemyDebugLabel debugLabel;
-
-    Rid persecutionArea;
-    Rid persecutionShape;
-
-    FlockingController flockingController;
     
+    Vector3 oldPosition= Vector3.Zero;
+    Vector3 newTargetPosition= Vector3.Zero;
+    Vector3 previousTargetPosition=Vector3.Zero;
+    bool canAttack=true;
+    [Export] float attackRange=1.5f;
+    [Export] AnimationPlayer attackAnimation;
     bool needReorderBuildingList=false;
 
 
-    private Vector3 velocity = Vector3.Zero;
-    private int rotateDirection=1;
 
-    private bool canAttack=true;
-
-    Vector3 previousTargetPosition= Vector3.Zero;
-    Vector3 newTargetPosition= Vector3.Zero;
-
-    PathfindingManager pathFindingManagerInstance;
-    SpatialHashMapping spatialHashMapping;
-    float persecutionRadius2=0.0f;
-
-    Vector3 oldPosition=Vector3.Zero;
-    [Export]
-    float detectionFlockingRadius=5.0f;
-    private Vector3 previousMove = Vector3.Zero; 
-
-    float avoidanceWeight=1.0f;
     public override void _Ready()
     {
         spatialHashMapping=SpatialHashMapping.INSTANCE;
 		spatialHashMapping.insertFull(this);
-        flockingController=new FlockingController(this,detectionFlockingRadius);
         this.pathFindingManagerInstance=PathfindingManager.INSTANCE;
 
         buildingsList= new List<House>();
@@ -92,6 +60,15 @@ public partial class Enemy : CharacterBody3D, IDamageDealer
 
     public override void _PhysicsProcess(double delta)
     {
+
+        Vector3 gravity = Vector3.Zero;
+		// Add the gravity.
+		if (!IsOnFloor())
+		{
+			gravity += GetGravity() * (float)delta;
+		}
+
+
         if(this.Position!=oldPosition){
             this.spatialHashMapping.update(this);
             oldPosition=this.Position;
@@ -112,29 +89,33 @@ public partial class Enemy : CharacterBody3D, IDamageDealer
         //mover el personaje
         if (!navAgent.IsNavigationFinished() && (distanceToTarget.Length()>attackRange) )
         {
-            //moveAgent(distanceToTarget, delta);
-            lookAtTargetInstant(this.targetPosition);
-            Vector3 flockingForce = this.flockingController.calculateTotalForce();
-            //Vector3 avoidanceForce = avoidance(delta)*2000;
-            
+            Vector3 seekForce = seekSteering(this,targetNode.GlobalPosition);
+			seekForce=seekForce*seekFactor;
+			seekForce=clampedVector3(seekForce,maxSeekForce);
 
-            Vector3 separationForce=this.flockingController.calculateSeparationForce(this.spatialHashMapping.findNearbyAgents(this,3.0f));
-            Vector3 steeringForce=this.flockingController.calculateSteeringForce(this,this.targetPosition.GlobalPosition,speed,this.Velocity);
-            Vector3 seekForce=this.flockingController.CalculateSIC(this,2.0f);
-            Vector3 evationForce=this.flockingController.calculateEvasionForce(this,this.spatialHashMapping.findNearbyAgents(this,3.0f),10.0f,5.0f);
+			Vector3 separationForce=this.separationForce();
+			separationForce=separationForce*separationFactor;
+			separationForce=clampedVector3(separationForce,maxSeparationForce);
+			
 
-            //Vector3 separationForce=Vector3.Zero;
-            //Vector3 steeringForce=Vector3.Zero;
-            //Vector3 seekForce=Vector3.Zero;
+			Vector3 avoidanceForce=this.avoidanceForce();
+			avoidanceForce=avoidanceForce*avoidanceFactor;
+			avoidanceForce=clampedVector3(avoidanceForce,maxAvoidanceForce);
 
-            String debugInfo = 
-                $"separation: {separationForce}\n" +
-                $"steering: {steeringForce}\n" +
-                $"seek: {seekForce}\n"+
-                $"velocity: {this.Velocity}";
-            this.debugLabel.setLabelText(debugInfo);
-            
-            applyMovement(evationForce,steeringForce,separationForce,seekForce,10.0f,5.0f,delta);
+			avoidanceForce=Vector3.Zero;
+
+
+			Vector3 force = seekForce+separationForce+avoidanceForce;
+
+			this.Velocity+=force;
+			this.Velocity+=gravity;//NOTA.. la velocidad se aplica calculando globalmente y se aplica de manera global, no importa si el objeto rota
+			this.Velocity=clampedVector3(this.Velocity,this.maxSpeed);
+			
+			
+			
+			LookAt(targetNode.GlobalPosition);
+
+			MoveAndSlide();
             //simpleMovement(avoidanceForce,this.targetPosition.GlobalPosition,3.0f);
 
 
@@ -151,13 +132,101 @@ public partial class Enemy : CharacterBody3D, IDamageDealer
     }
 
 
+	public Vector3 avoidanceForce(){
+		Vector3 avoidanceForce=Vector3.Zero;
+
+		var areas = this.area.GetOverlappingAreas();
+
+		int counter=0;
+        foreach (Area3D area in areas)
+        {
+			float distance=this.GlobalPosition.DistanceTo(area.GlobalPosition);
+
+			Vector3 fromToVector = area.GlobalPosition-this.GlobalPosition;
+			Vector3 perpendicular = new Vector3(fromToVector.Z,0,-fromToVector.X);
+			if(distance>0){
+				avoidanceForce+=((perpendicular).Normalized())/(distance);
+			}
+			counter++;
+        }
+
+		avoidanceForce.Y=0;
+
+		return avoidanceForce;
+	}
+	public Vector3 separationForceFseek(Vector3 fseek){
+		Vector3 separationForce= Vector3.Zero;
+
+		var areas = this.area.GetOverlappingAreas();
+
+		int counter=0;
+        foreach (Area3D area in areas)
+        {
+			float distance=this.GlobalPosition.DistanceTo(area.GlobalPosition);
+			if(distance>0){
+				separationForce+=(-fseek/0.6f)+fseek;
+			}
+			counter++;
+        }
+		if(counter>0){
+			separationForce/=counter;
+		}
+		
+		separationForce.Y=0;
+
+		return separationForce;
+	}
+	public Vector3 separationForce(){
+		Vector3 separationForce= Vector3.Zero;
+
+		var areas = this.area.GetOverlappingAreas();
+
+		int counter=0;
+        foreach (Area3D area in areas)
+        {
+			float distance=this.GlobalPosition.DistanceTo(area.GlobalPosition);
+			if(distance>0){
+				separationForce+=((this.GlobalPosition-area.GlobalPosition))/(distance*distance*distance);
+			}
+			counter++;
+        }
+		if(counter>0){
+			separationForce/=counter;
+		}
+		
+		separationForce.Y=0;
+		separationForce=separationForce.Normalized();
+		return separationForce;
+	}
+
+	private Vector3 seekSteering(CharacterBody3D node, Vector3 pointTo){
+
+		Vector3 desiredVelocity = (pointTo-node.GlobalPosition).Normalized()*maxSpeed;//calculo la dirección a la que quiero ir , normalizo y multiplico para obtener la velocidad
+		Vector3 seekSteeringForce=desiredVelocity-node.Velocity;// es la velocidad de corrección, es cuanto me falta a nivel vectorial para ir hacia donde quiero
+
+		return seekSteeringForce;
+	}
+
+	//no permite que el vector exceda una magnitud determinada
+	public static Vector3 clampedVector3(Vector3 vector, float max)
+    {
+        if (vector.Length() > max){
+			Vector3 toReturn=vector.Normalized() * max;;
+			return toReturn;
+		} 
+		return vector;
+	}
+	
+
+
+
     // La función para calcular la fuerza de Separation
     
     private void applyMovement(Vector3 evationForce,Vector3 steeringForce, Vector3 separationForce, Vector3 sicForce, float MaxForce, float maxSpeed, double delta)
     {
         // 1. Sumar fuerzas
         Vector3 totalForce = steeringForce + separationForce*2.0f + sicForce+evationForce;
-        this.debugLabel.setLabelText(this.debugLabel.getLabelText()+$"\ntotalForce:{totalForce}");
+        this.debugLabel.Text=(this.debugLabel.Text+$"\ntotalForce:{totalForce}");
         totalForce=new Vector3(totalForce.X,0,totalForce.Z);
 
         
@@ -195,6 +264,9 @@ public partial class Enemy : CharacterBody3D, IDamageDealer
         // 6. Mover el cuerpo
         MoveAndSlide();
     }
+
+
+    
 
 
 
@@ -245,62 +317,15 @@ public partial class Enemy : CharacterBody3D, IDamageDealer
         }
     }
 
+
+
     public void changeTarget(){
         if(buildingsList!=null && buildingsList.Count!=0){
             newTargetPosition = buildingsList[0].GlobalPosition;
         } else {
-            newTargetPosition = targetPosition.GlobalPosition;
+            newTargetPosition = targetNode.GlobalPosition;
         }
     }
-/*
-    private void moveAgent(Vector3 distanceToTarget, double delta){
-        
-        Vector3 nextPathPoint = navAgent.GetNextPathPosition()  ;
-        Vector3 direction = (nextPathPoint - GlobalPosition).Normalized();
-
-        // Suavizado con aceleración
-        Vector3 forwardDirection = -GlobalTransform.Basis.Z.Normalized();
-
-        velocity = velocity.Lerp(forwardDirection * speed, (float)(acceleration * delta));
-
-
-        //-----calculo el ángulo X Z entre el target y yo-----
-        Vector3 forward = -GlobalTransform.Basis.Z;
-        forward.Y = 0;
-        forward = forward.Normalized();// normalizás los vectores porque es más conveniente para que no de error el Acos y porque si no estás metiendo la magnitud de los vectores en el medio y eso no es lo que querés.. todo esto es álgebra
-        //GD.Print(targetPosition.GlobalPosition+"-this--"+this.GlobalPosition);
-        
-        
-        Vector3 toTarget = direction;//targetPosition.GlobalPosition - this.GlobalPosition; // da un vector que apunta desde este objeto hasta el target.. 
-        toTarget.Y = 0;
-        toTarget = toTarget.Normalized();
-
-        // Ángulo con signo
-        float dot = forward.Dot(toTarget); //haceés el producto punto o escalar
-        dot = Mathf.Clamp(dot, -1f, 1f); // previene errores con acos // no se difide por el modulo antes el dotResult porque cuando normalizás los vectores hacés que los módulos de los mismos de 1
-        float angleRad = Mathf.Acos(dot);
-        float angleDeg = Mathf.RadToDeg(angleRad);
-        float crossY = forward.Cross(toTarget).Y;
-
-        // Si el ángulo es suficientemente grande, giramos
-        if (angleDeg > angleTolerance)
-        {
-            float directionSign = Mathf.Sign(crossY); // +1 derecha, -1 izquierda
-
-            
-            float smoothFactor = Mathf.Clamp(angleDeg / 90f, 0f, 1f);
-            float smoothedTurnSpeed = Mathf.Lerp(minTurnSpeed, turnSpeed, smoothFactor);
-
-            RotateY(directionSign * smoothedTurnSpeed * (float)delta);
-            //RotateY(directionSign * turnSpeed * (float)delta);
-        }
-        
-        this.Velocity = velocity;
-
-        MoveAndSlide();
-    }*/
-
-//esta funcion es para cuando el enemy lo ponemos como que estiende de Node3D y no de character body..e soty probando rendimientos
 
 
     void lookAtTargetInstant(Node3D target)
@@ -323,7 +348,7 @@ public partial class Enemy : CharacterBody3D, IDamageDealer
     }
 
     public void setTargetPosition(Node3D target){
-        this.targetPosition=target;
+        this.targetNode=target;
     }
 
     public void setNavigationRegion3D(NavigationRegion3D navigationRegion3D){

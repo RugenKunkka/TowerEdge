@@ -116,25 +116,20 @@ _data = {
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8e3ao"]
 
-[node name="Enemy" type="CharacterBody3D" node_paths=PackedStringArray("navAgent", "attackRangeArea3d", "detectionRangeArea", "persecutionRadious", "attackCooldownTimer", "attackAnimation", "debugLabel")]
+[node name="Enemy" type="CharacterBody3D" node_paths=PackedStringArray("debugLabel", "attackCooldownTimer", "navAgent", "area", "attackAnimation")]
 transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0, 0)
 collision_layer = 17
 collision_mask = 17
 script = ExtResource("1_6xk8f")
-speed = 4.0
-navAgent = NodePath("NavigationAgent3D")
-turnSpeed = 8.0
-minTurnSpeed = 6.0
-attackRangeArea3d = NodePath("AttackRange")
-detectionRangeArea = NodePath("DetectionRange")
-persecutionRadious = NodePath("PersecutionRadious")
+debugLabel = NodePath("Sprite3D/SubViewport/Label")
 attackCooldownTimer = NodePath("AttackCooldownTimer")
+navAgent = NodePath("NavigationAgent3D")
+area = NodePath("AttackRange")
 attackAnimation = NodePath("AnimationPlayer")
-debugLabel = NodePath("Sprite3D")
-detectionFlockingRadius = 3.0
 
 [node name="Sprite3D" type="Sprite3D" parent="." node_paths=PackedStringArray("label")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 3, 0)
+visible = false
 texture = SubResource("ViewportTexture_8e3ao")
 script = ExtResource("2_38ino")
 label = NodePath("SubViewport/Label")
