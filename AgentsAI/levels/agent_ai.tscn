@@ -18,11 +18,6 @@ viewport_path = NodePath("Sprite3D/SubViewport")
 [node name="AgentAI" type="CharacterBody3D" node_paths=PackedStringArray("debugLabel", "area")]
 script = ExtResource("1_pkygd")
 debugLabel = NodePath("Sprite3D/SubViewport/Label")
-seekFactor = 1.6
-separationFactor = 2.14
-maxSeparationForce = 1.0
-avoidanceFactor = 0.0
-maxSpeed = 3.6
 area = NodePath("SeparationArea")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -58,3 +53,37 @@ offset_right = 40.0
 offset_bottom = 23.0
 theme_override_font_sizes/font_size = 35
 text = "aaaaaaaaaaaa"
+
+[node name="Raycasts" type="Node3D" parent="."]
+
+[node name="RayCast3D" type="RayCast3D" parent="Raycasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+target_position = Vector3(2, 0, 0)
+
+[node name="RayCast3D2" type="RayCast3D" parent="Raycasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+target_position = Vector3(2, 0, -2)
+
+[node name="RayCast3D3" type="RayCast3D" parent="Raycasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+target_position = Vector3(0, 0, -2)
+
+[node name="RayCast3D4" type="RayCast3D" parent="Raycasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+target_position = Vector3(-2, 0, -2)
+
+[node name="RayCast3D5" type="RayCast3D" parent="Raycasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+target_position = Vector3(-2, 0, 0)
+
+[node name="RayCast3D6" type="RayCast3D" parent="Raycasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+target_position = Vector3(-2, 0, 2)
+
+[node name="RayCast3D7" type="RayCast3D" parent="Raycasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+target_position = Vector3(0, 0, 2)
+
+[node name="RayCast3D8" type="RayCast3D" parent="Raycasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+target_position = Vector3(2, 0, 2)
