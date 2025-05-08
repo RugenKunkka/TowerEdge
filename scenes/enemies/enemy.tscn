@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dnx6nkjmgclg4"]
+[gd_scene load_steps=18 format=3 uid="uid://dnx6nkjmgclg4"]
 
 [ext_resource type="Script" uid="uid://dhu7fri88ogm6" path="res://scripts/Enemy.cs" id="1_6xk8f"]
 [ext_resource type="Script" uid="uid://lse3wakd7315" path="res://scripts/HitBox.cs" id="2_8e3ao"]
@@ -116,6 +116,9 @@ _data = {
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8e3ao"]
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_38ino"]
+radius = 0.869629
+
 [node name="Enemy" type="CharacterBody3D" node_paths=PackedStringArray("debugLabel", "attackCooldownTimer", "navAgent", "area", "attackAnimation")]
 transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0, 0)
 collision_layer = 17
@@ -124,7 +127,7 @@ script = ExtResource("1_6xk8f")
 debugLabel = NodePath("Sprite3D/SubViewport/Label")
 attackCooldownTimer = NodePath("AttackCooldownTimer")
 navAgent = NodePath("NavigationAgent3D")
-area = NodePath("AttackRange")
+area = NodePath("SeparationArea")
 attackAnimation = NodePath("AnimationPlayer")
 
 [node name="Sprite3D" type="Sprite3D" parent="." node_paths=PackedStringArray("label")]
@@ -194,7 +197,7 @@ debug_color = Color(0.924431, 0.181294, 0.518813, 0.42)
 
 [node name="AttackRange" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-collision_layer = 16
+collision_layer = 17
 monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AttackRange"]
@@ -218,3 +221,10 @@ one_shot = true
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_8e3ao")
+
+[node name="SeparationArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SeparationArea"]
+transform = Transform3D(0.999996, 0, 0, 0, 1, 0, 0, 0, 0.999996, 0, 0, 0)
+shape = SubResource("CylinderShape3D_38ino")

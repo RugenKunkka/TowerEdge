@@ -87,7 +87,7 @@ public partial class Enemy : CharacterBody3D, IDamageDealer
         distanceToTarget.Y = 0;
 
         //mover el personaje
-        if (!navAgent.IsNavigationFinished() && (distanceToTarget.Length()>attackRange) )
+        if ( this.Position.DistanceTo(targetNode.Position)>attackRange )
         {
             Vector3 seekForce = seekSteering(this,targetNode.GlobalPosition);
 			seekForce=seekForce*seekFactor;

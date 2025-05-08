@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cd62o5xauvto3"]
+[gd_scene load_steps=15 format=3 uid="uid://cd62o5xauvto3"]
 
 [ext_resource type="Script" uid="uid://b75l17xvys7cf" path="res://scripts/Archer.cs" id="1_vlcfm"]
 [ext_resource type="Script" uid="uid://lse3wakd7315" path="res://scripts/HitBox.cs" id="2_84to3"]
@@ -110,12 +110,16 @@ _data = {
 &"RESET": SubResource("Animation_6xk8f")
 }
 
-[node name="Archer" type="CharacterBody3D" node_paths=PackedStringArray("attackCooldownTimer", "navAgent", "attackAnimation")]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_vlcfm"]
+radius = 0.869629
+
+[node name="Archer" type="CharacterBody3D" node_paths=PackedStringArray("attackCooldownTimer", "navAgent", "area", "attackAnimation")]
 transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0, 0)
 collision_layer = 16
 script = ExtResource("1_vlcfm")
 attackCooldownTimer = NodePath("AttackCooldownTimer")
 navAgent = NodePath("NavigationAgent3D")
+area = NodePath("SeparationArea")
 attackAnimation = NodePath("AnimationPlayer")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -180,3 +184,10 @@ libraries = {
 
 [node name="AttackCooldownTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="SeparationArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SeparationArea"]
+transform = Transform3D(0.999996, 0, 0, 0, 1, 0, 0, 0, 0.999996, 0, 0, 0)
+shape = SubResource("CylinderShape3D_vlcfm")

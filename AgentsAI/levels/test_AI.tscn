@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://brhmguqgni4y0"]
 
 [ext_resource type="PackedScene" uid="uid://cfdh2gwneol2o" path="res://scenes/buildings/house.tscn" id="1_rjqix"]
-[ext_resource type="PackedScene" uid="uid://dtt6jqhuemel3" path="res://AgentsAI/levels/agent_ai.tscn" id="2_leolm"]
+[ext_resource type="PackedScene" uid="uid://dnx6nkjmgclg4" path="res://scenes/enemies/enemy.tscn" id="2_leolm"]
 [ext_resource type="PackedScene" uid="uid://clskc7e0x3aoj" path="res://scenes/spawn_manager.tscn" id="3_4hida"]
 [ext_resource type="PackedScene" uid="uid://dba2nrc2v71io" path="res://scenes/spawn_region.tscn" id="4_wmt48"]
 
@@ -52,38 +52,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5402, 0, 0)
 
 [node name="Agents" type="Node3D" parent="."]
 
-[node name="AgentAI" parent="Agents" node_paths=PackedStringArray("targetNode") instance=ExtResource("2_leolm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.7081, 0, 0)
+[node name="Enemy" parent="Agents" node_paths=PackedStringArray("navigationRegion3D", "targetNode") instance=ExtResource("2_leolm")]
+transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0, -2.8)
+navigationRegion3D = NodePath("../../NavigationRegion3D")
+targetNode = NodePath(".")
+
+[node name="Enemy2" parent="Agents" node_paths=PackedStringArray("navigationRegion3D", "targetNode") instance=ExtResource("2_leolm")]
+transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, -5.588, 0.022, 0)
+navigationRegion3D = NodePath("../../NavigationRegion3D")
 targetNode = NodePath("../../Target")
 
-[node name="AgentAI2" parent="Agents" node_paths=PackedStringArray("targetNode") instance=ExtResource("2_leolm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.9248, 0, 0)
-targetNode = NodePath("../../Target")
+[node name="SpawnManager" parent="Agents" node_paths=PackedStringArray("spawnRegionsList") instance=ExtResource("3_4hida")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.2841, 0.0218506, -2.28333)
+spawnRegionsList = [NodePath("../SpawnRegion")]
 
-[node name="AgentAI3" parent="Agents" node_paths=PackedStringArray("targetNode") instance=ExtResource("2_leolm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.7199, 0, -2.78528)
-targetNode = NodePath("../../Target")
-
-[node name="AgentAI4" parent="Agents" node_paths=PackedStringArray("targetNode") instance=ExtResource("2_leolm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.7199, 0, 2.62466)
-targetNode = NodePath("../../Target")
-
-[node name="AgentAI5" parent="Agents" node_paths=PackedStringArray("targetNode") instance=ExtResource("2_leolm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.4165, 0, 5.7619)
-targetNode = NodePath("../../Target")
-
-[node name="AgentAI6" parent="Agents" node_paths=PackedStringArray("targetNode") instance=ExtResource("2_leolm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.8955, 0, -5.47278)
-targetNode = NodePath("../../Target")
-avoidanceFactor = 3.14
-maxAvoidanceForce = 2.72
-maxSpeed = 4.0
-
-[node name="AgentAI7" parent="Agents" node_paths=PackedStringArray("targetNode") instance=ExtResource("2_leolm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.638, 0, -13.1239)
-targetNode = NodePath("../../Target")
-maxAvoidanceForce = 2.72
-maxSpeed = 4.0
+[node name="SpawnRegion" parent="Agents" node_paths=PackedStringArray("targetPosition", "navigationRegion") instance=ExtResource("4_wmt48")]
+transform = Transform3D(0.921775, 0, -0.387725, 0, 1, 0, 0.387725, 0, 0.921775, -4.90814, 0.0218506, 13.2332)
+targetPosition = NodePath("../../Target")
+navigationRegion = NodePath("../../NavigationRegion3D")
 
 [node name="Target" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.80418, 0, 0)
@@ -95,12 +81,3 @@ shape = SubResource("CylinderShape3D_leolm")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Target"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = SubResource("CylinderMesh_rjqix")
-
-[node name="SpawnManager" parent="." node_paths=PackedStringArray("spawnRegionsList") instance=ExtResource("3_4hida")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.9997, 0.0217285, -2.896)
-spawnRegionsList = [NodePath("../SpawnRegion")]
-
-[node name="SpawnRegion" parent="." node_paths=PackedStringArray("targetPosition", "navigationRegion") instance=ExtResource("4_wmt48")]
-transform = Transform3D(0.921775, 0, -0.387725, 0, 1, 0, 0.387725, 0, 0.921775, -0.459354, 0.0217285, 7.82581)
-targetPosition = NodePath("../Target")
-navigationRegion = NodePath("../NavigationRegion3D")
