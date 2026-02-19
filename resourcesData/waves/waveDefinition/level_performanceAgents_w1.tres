@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ResWaveDefinition" load_steps=4 format=3 uid="uid://b7p3v8xrhclkb"]
+
+[ext_resource type="Script" uid="uid://brccl2typh0gy" path="res://scripts-v2/SpawnWaves/ResScripts/ResWaveDefinition.cs" id="1_1w851"]
+[ext_resource type="Script" uid="uid://dqtk4cn27hx14" path="res://scripts-v2/SpawnWaves/ResScripts/ResSpawnerInstruction.cs" id="2_fgufv"]
+[ext_resource type="Resource" uid="uid://c4gsm6cwfj2w" path="res://resourcesData/waves/spawnerInstruction/level_performanceAgents_waveSpawner_wave1.tres" id="3_fgufv"]
+
+[resource]
+script = ExtResource("1_1w851")
+spawnerInstructions = Array[ExtResource("2_fgufv")]([ExtResource("3_fgufv")])
+metadata/_custom_type_script = "uid://brccl2typh0gy"

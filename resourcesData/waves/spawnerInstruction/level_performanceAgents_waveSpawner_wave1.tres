@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ResSpawnerInstruction" load_steps=5 format=3 uid="uid://c4gsm6cwfj2w"]
+
+[ext_resource type="Script" uid="uid://pql0rqobtb0i" path="res://scripts-v2/SpawnWaves/ResScripts/ResSpawnGroup.cs" id="1_5jl2c"]
+[ext_resource type="Resource" uid="uid://ujuiebpd0mq" path="res://resourcesData/waves/spawnGroup/skeleton-3_0.0_0.5.tres" id="2_8cay0"]
+[ext_resource type="Resource" uid="uid://dmp8ricw82hbu" path="res://resourcesData/waves/spawnGroup/skeleton-archers-2_0.0_0.5.tres" id="3_7kdxs"]
+[ext_resource type="Script" uid="uid://dqtk4cn27hx14" path="res://scripts-v2/SpawnWaves/ResScripts/ResSpawnerInstruction.cs" id="4_hyi0r"]
+
+[resource]
+script = ExtResource("4_hyi0r")
+TargetSpawnerId = "waveSpawner1"
+Groups = Array[ExtResource("1_5jl2c")]([ExtResource("2_8cay0"), ExtResource("3_7kdxs")])
+metadata/_custom_type_script = "uid://dqtk4cn27hx14"

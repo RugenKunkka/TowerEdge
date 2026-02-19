@@ -1,0 +1,122 @@
+@startuml
+
+' Estilos visuales
+skinparam classAttributeIconSize 0
+skinparam linetype ortho
+
+' ------------------------------------------------
+' NIVEL 1: LA BASE ABSOLUTA
+' ------------------------------------------------
+abstract class "Node3D (Godot)" as Node3D {
+}
+
+abstract class WorldEntity {
+    + Vector3 Position
+    + LayerType Layer
+    + void RegisterInGrid()
+    + void Unregister()
+}
+
+Node3D <|-- WorldEntity
+
+' ------------------------------------------------
+' NIVEL 2: LA GRAN BIFURCACIÓN (VIDA VS OBJETO)
+' ------------------------------------------------
+
+' RAMA A: Cosas que NO se pueden atacar (Trampas)
+' No tienen HP, los enemigos las ignoran al buscar targets.
+class Trap {
+    + int DamageAmount
+    + EffectType Debuff
+    + void Trigger()
+}
+
+WorldEntity <|-- Trap
+
+' RAMA B: Cosas que SI tienen vida (Se pueden atacar)
+abstract class DamageableEntity {
+    + int Health
+    + int MaxHealth
+    + int TeamID
+    + void TakeDamage(amount)
+    + void Die()
+}
+
+WorldEntity <|-- DamageableEntity
+
+' ------------------------------------------------
+' NIVEL 3: ESTRUCTURAS VS MOVILES
+' ------------------------------------------------
+
+' Estructuras (Edificios, Torres)
+abstract class Structure {
+    + float BuildingSize
+}
+
+DamageableEntity <|-- Structure
+
+class Tower {
+    + float AttackRange
+    + float FireRate
+    + void Shoot()
+}
+
+class Nexus {
+    ' La base principal que si muere pierdes
+}
+
+Structure <|-- Tower
+Structure <|-- Nexus
+
+' Unidades Moviles (Personajes)
+abstract class Unit {
+    + float MoveSpeed
+    + NavAgent Agent
+    + void MoveTo(Vector3 pos)
+}
+
+DamageableEntity <|-- Unit
+
+' ------------------------------------------------
+' NIVEL 4: LOS ROLES ESPECIFICOS
+' ------------------------------------------------
+
+class Hero {
+    + void InputHandler()
+    + void CastSkill()
+}
+
+class Enemy {
+    + IAState currentState
+    + void FindTarget()
+}
+
+' Tu Paladín Aliado
+class AllyNPC {
+    + void Patrol()
+    + void GuardPosition()
+}
+
+Unit <|-- Hero
+Unit <|-- Enemy
+Unit <|-- AllyNPC
+
+' Implementaciones finales de Enemigos
+class OrcWarrior {
+}
+class SkeletonMage {
+}
+
+Enemy <|-- OrcWarrior
+Enemy <|-- SkeletonMage
+
+' Implementaciones de Trampas
+class SpikeTrap {
+}
+class FireTrap {
+}
+
+Trap <|-- SpikeTrap
+Trap <|-- FireTrap
+
+@enduml

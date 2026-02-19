@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ResSpawnGroup" load_steps=3 format=3 uid="uid://ujuiebpd0mq"]
+
+[ext_resource type="PackedScene" uid="uid://ce8ae5at1jgub" path="res://scenes/enemies/skeleton.tscn" id="1_3la8e"]
+[ext_resource type="Script" uid="uid://pql0rqobtb0i" path="res://scripts-v2/SpawnWaves/ResScripts/ResSpawnGroup.cs" id="1_5tols"]
+
+[resource]
+script = ExtResource("1_5tols")
+enemiesList = Array[PackedScene]([null, ExtResource("1_3la8e"), ExtResource("1_3la8e"), ExtResource("1_3la8e"), null])
+metadata/_custom_type_script = "uid://pql0rqobtb0i"

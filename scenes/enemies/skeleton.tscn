@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://ce8ae5at1jgub"]
+
+[ext_resource type="Script" uid="uid://bspwa5pxg3b8m" path="res://scripts-v2/Skeleton.cs" id="1_uo8vp"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uo8vp"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_5365w"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_esykl"]
+size = Vector3(0.5, 0.5, 1)
+
+[node name="Skeleton" type="CharacterBody3D" node_paths=PackedStringArray("_animPlayer")]
+script = ExtResource("1_uo8vp")
+_animPlayer = NodePath("AnimationPlayer")
+spatialGridLayerTypeEnum = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_uo8vp")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D"]
+mesh = SubResource("CapsuleMesh_5365w")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38071942, 0.34054583, 0)
+mesh = SubResource("BoxMesh_esykl")
+skeleton = NodePath("../..")

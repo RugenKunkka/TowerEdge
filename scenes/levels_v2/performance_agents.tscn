@@ -1,0 +1,66 @@
+[gd_scene load_steps=9 format=3 uid="uid://chtk1clyh0bv0"]
+
+[ext_resource type="Script" uid="uid://287sjfsjhm3s" path="res://scripts-v2/SpatialHashing/SpatialGridManager.cs" id="1_ben0a"]
+[ext_resource type="Script" uid="uid://b42st6bfepuex" path="res://scripts-v2/SpawnWaves/WaveManager.cs" id="2_fv17d"]
+[ext_resource type="Resource" uid="uid://b7p3v8xrhclkb" path="res://resourcesData/waves/waveDefinition/level_performanceAgents_w1.tres" id="3_vvhx7"]
+[ext_resource type="Script" uid="uid://cn8yavi5u06v" path="res://scripts-v2/SpawnWaves/WaveSpawner.cs" id="3_xrrc5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xrrc5"]
+albedo_color = Color(0.29219002, 0.29219005, 0.29219002, 0.85882354)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_fv17d"]
+material = SubResource("StandardMaterial3D_xrrc5")
+size = Vector2(20, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xrrc5"]
+size = Vector3(20, 0.2, 20)
+
+[sub_resource type="Environment" id="Environment_vvhx7"]
+
+[node name="PerformanceAgents" type="Node3D"]
+
+[node name="SpatialGridManager" type="Node3D" parent="."]
+script = ExtResource("1_ben0a")
+
+[node name="WaveManager" type="Node3D" parent="." node_paths=PackedStringArray("WaveSpawnersList")]
+script = ExtResource("2_fv17d")
+WaveSpawnersList = [NodePath("WaveSpawner0")]
+WavesData = [ExtResource("3_vvhx7")]
+
+[node name="WaveSpawner0" type="Node3D" parent="WaveManager" node_paths=PackedStringArray("SpawnPointsList")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.36489087, 3.2619052)
+script = ExtResource("3_xrrc5")
+spawnerId = "waveSpawner1"
+SpawnPointsList = [NodePath("SpawnPoint0"), NodePath("SpawnPoint1"), NodePath("SpawnPoint2"), NodePath("SpawnPoint3"), NodePath("SpawnPoint4")]
+
+[node name="SpawnPoint0" type="Marker3D" parent="WaveManager/WaveSpawner0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+
+[node name="SpawnPoint1" type="Marker3D" parent="WaveManager/WaveSpawner0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1)
+
+[node name="SpawnPoint2" type="Marker3D" parent="WaveManager/WaveSpawner0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+
+[node name="SpawnPoint3" type="Marker3D" parent="WaveManager/WaveSpawner0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -1)
+
+[node name="SpawnPoint4" type="Marker3D" parent="WaveManager/WaveSpawner0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+
+[node name="Gound" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Gound"]
+mesh = SubResource("PlaneMesh_fv17d")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Gound"]
+shape = SubResource("BoxShape3D_xrrc5")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_vvhx7")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -2)
+
+[node name="Camera3D" type="Camera3D" parent="WorldEnvironment"]
+transform = Transform3D(0.9711551, 0.051626004, -0.2327929, 0, 0.9762809, 0.21650779, 0.2384487, -0.21026266, 0.9481202, -2.6614041, 1.8678409, 3.081959)
