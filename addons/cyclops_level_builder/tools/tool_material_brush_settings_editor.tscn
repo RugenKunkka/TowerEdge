@@ -1,73 +1,73 @@
-[gd_scene load_steps=2 format=3 uid="uid://dugi0xh84150p"]
+[gd_scene format=3 uid="uid://dugi0xh84150p"]
 
-[ext_resource type="Script" path="res://addons/cyclops_level_builder/tools/tool_material_brush_settings_editor.gd" id="1_q0hdg"]
+[ext_resource type="Script" uid="uid://cjwlfq2pnwcsd" path="res://addons/cyclops_level_builder/tools/tool_material_brush_settings_editor.gd" id="1_q0hdg"]
 
-[node name="PanelContainer" type="PanelContainer"]
+[node name="PanelContainer" type="PanelContainer" unique_id=765762537]
 offset_right = 317.0
 offset_bottom = 269.0
 script = ExtResource("1_q0hdg")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=84922059]
 layout_mode = 2
 
-[node name="check_individual_faces" type="CheckBox" parent="VBoxContainer"]
+[node name="check_individual_faces" type="CheckBox" parent="VBoxContainer" unique_id=2007994188]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Individual faces"
 
-[node name="check_paint_material" type="CheckBox" parent="VBoxContainer"]
+[node name="check_paint_material" type="CheckBox" parent="VBoxContainer" unique_id=164275107]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Paint materials"
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=619506028]
 layout_mode = 2
 theme_override_constants/margin_left = 16
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer" unique_id=1534704007]
 layout_mode = 2
 
-[node name="check_erase_material" type="CheckBox" parent="VBoxContainer/MarginContainer/VBoxContainer"]
+[node name="check_erase_material" type="CheckBox" parent="VBoxContainer/MarginContainer/VBoxContainer" unique_id=1664951337]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Erase materials"
 
-[node name="check_paint_color" type="CheckBox" parent="VBoxContainer"]
+[node name="check_paint_color" type="CheckBox" parent="VBoxContainer" unique_id=1587273541]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Paint color"
 
-[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer" unique_id=60512683]
 layout_mode = 2
 theme_override_constants/margin_left = 16
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer2"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer2" unique_id=1333499040]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/MarginContainer2/HBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer2/HBoxContainer" unique_id=2067413459]
 layout_mode = 2
 text = "Color"
 
-[node name="color_button" type="ColorPickerButton" parent="VBoxContainer/MarginContainer2/HBoxContainer"]
+[node name="color_button" type="ColorPickerButton" parent="VBoxContainer/MarginContainer2/HBoxContainer" unique_id=319424028]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="check_paint_visibility" type="CheckBox" parent="VBoxContainer"]
+[node name="check_paint_visibility" type="CheckBox" parent="VBoxContainer" unique_id=136849969]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Paint visibility"
 
-[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer"]
+[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer" unique_id=559990891]
 layout_mode = 2
 theme_override_constants/margin_left = 16
 
-[node name="check_visibility" type="CheckBox" parent="VBoxContainer/MarginContainer3"]
+[node name="check_visibility" type="CheckBox" parent="VBoxContainer/MarginContainer3" unique_id=634393007]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Visible"
 
-[node name="check_paint_uv" type="CheckBox" parent="VBoxContainer"]
+[node name="check_paint_uv" type="CheckBox" parent="VBoxContainer" unique_id=149553494]
 unique_name_in_owner = true
 layout_mode = 2
 tooltip_text = "Set the face's UV transform to the identity matrix."

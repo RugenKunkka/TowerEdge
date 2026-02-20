@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://diibmlqy1mpqb"]
+[gd_scene format=3 uid="uid://diibmlqy1mpqb"]
 
-[ext_resource type="Script" path="res://addons/cyclops_level_builder/controls/numeric_line_edit.gd" id="1_u8bpo"]
+[ext_resource type="Script" uid="uid://1nvfd7nmdgev" path="res://addons/cyclops_level_builder/controls/numeric_line_edit.gd" id="1_u8bpo"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o7f15"]
 bg_color = Color(0.0627451, 0.0627451, 0.0627451, 1)
@@ -14,16 +14,16 @@ content_margin_top = 4.0
 content_margin_right = 4.0
 content_margin_bottom = 4.0
 
-[node name="numeric_line_edit" type="PanelContainer"]
+[node name="numeric_line_edit" type="PanelContainer" unique_id=1490363914]
 offset_right = 476.0
 offset_bottom = 23.0
 script = ExtResource("1_u8bpo")
 snap_size = 0.125
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=2059186222]
 layout_mode = 2
 
-[node name="line_input" type="LineEdit" parent="HBoxContainer"]
+[node name="line_input" type="LineEdit" parent="HBoxContainer" unique_id=663004273]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
@@ -32,7 +32,7 @@ text = "0"
 alignment = 2
 select_all_on_focus = true
 
-[node name="line_display" type="Label" parent="HBoxContainer"]
+[node name="line_display" type="Label" parent="HBoxContainer" unique_id=958167155]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3

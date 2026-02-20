@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://cntpu60rqb3ao"]
+[gd_scene format=3 uid="uid://cntpu60rqb3ao"]
 
 [ext_resource type="Script" uid="uid://cvpsm48j02i8p" path="res://addons/cyclops_level_builder/nodes/cyclops_block.gd" id="1_48ne7"]
 [ext_resource type="Script" uid="uid://dg1dxedqgfrxl" path="res://scripts/PhysicsServer3dTest.cs" id="1_eaa0b"]
@@ -29,15 +29,11 @@ cell_height = 0.03
 script = ExtResource("2_6xh4u")
 data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 name = &"selected"
-category = ""
-data_type = 0
-stride = 1
 
 [sub_resource type="Resource" id="Resource_hfwtw"]
 script = ExtResource("4_7x1jh")
 data = PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
 name = &"color"
-category = ""
 data_type = 4
 stride = 4
 
@@ -45,23 +41,17 @@ stride = 4
 script = ExtResource("3_cyt5c")
 data = PackedInt32Array(-1, -1, -1, -1, -1, -1)
 name = &"material_index"
-category = ""
 data_type = 1
-stride = 1
 
 [sub_resource type="Resource" id="Resource_owgeq"]
 script = ExtResource("2_6xh4u")
 data = PackedByteArray(0, 0, 0, 0, 0, 0)
 name = &"selected"
-category = ""
-data_type = 0
-stride = 1
 
 [sub_resource type="Resource" id="Resource_cibht"]
 script = ExtResource("4_7x1jh")
 data = PackedFloat32Array(1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0)
 name = &"uv_transform"
-category = ""
 data_type = 8
 stride = 6
 
@@ -69,15 +59,11 @@ stride = 6
 script = ExtResource("2_6xh4u")
 data = PackedByteArray(1, 1, 1, 1, 1, 1)
 name = &"visible"
-category = ""
-data_type = 0
-stride = 1
 
 [sub_resource type="Resource" id="Resource_0d6o1"]
 script = ExtResource("4_7x1jh")
 data = PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
 name = &"color"
-category = ""
 data_type = 4
 stride = 4
 
@@ -85,15 +71,12 @@ stride = 4
 script = ExtResource("3_cyt5c")
 data = PackedInt32Array(0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5)
 name = &"face_index"
-category = ""
 data_type = 1
-stride = 1
 
 [sub_resource type="Resource" id="Resource_vptxo"]
 script = ExtResource("4_7x1jh")
 data = PackedFloat32Array(-1, 0, 0, -1, 0, 0, -1, 0, 0, -1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, -1, 0, 0, -1, 0, 0, -1, 0, 0, -1, 0, 0, 0, -1, 0, 0, -1, 0, 0, -1, 0, 0, -1)
 name = &"normal"
-category = ""
 data_type = 6
 stride = 3
 
@@ -101,15 +84,12 @@ stride = 3
 script = ExtResource("3_cyt5c")
 data = PackedInt32Array(0, 1, 2, 3, 7, 6, 5, 4, 1, 0, 4, 5, 2, 1, 5, 6, 3, 2, 6, 7, 0, 3, 7, 4)
 name = &"vertex_index"
-category = ""
 data_type = 1
-stride = 1
 
 [sub_resource type="Resource" id="Resource_0nxvq"]
 script = ExtResource("4_7x1jh")
 data = PackedFloat32Array(0, 1, 0, 0, 1, 24, 0, 0, 24, 0, 0, 0, 16, 1, 0, 16, 1, 24, 16, 0, 24, 16, 0, 0)
 name = &"position"
-category = ""
 data_type = 6
 stride = 3
 
@@ -117,9 +97,6 @@ stride = 3
 script = ExtResource("2_6xh4u")
 data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0)
 name = &"selected"
-category = ""
-data_type = 0
-stride = 1
 
 [sub_resource type="Resource" id="Resource_dgc65"]
 script = ExtResource("5_hfwtw")
@@ -160,15 +137,11 @@ face_vertex_data = {
 script = ExtResource("2_6xh4u")
 data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 name = &"selected"
-category = ""
-data_type = 0
-stride = 1
 
 [sub_resource type="Resource" id="Resource_y0fbb"]
 script = ExtResource("4_7x1jh")
 data = PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
 name = &"color"
-category = ""
 data_type = 4
 stride = 4
 
@@ -176,23 +149,17 @@ stride = 4
 script = ExtResource("3_cyt5c")
 data = PackedInt32Array(-1, -1, -1, -1, -1, -1)
 name = &"material_index"
-category = ""
 data_type = 1
-stride = 1
 
 [sub_resource type="Resource" id="Resource_5vl2c"]
 script = ExtResource("2_6xh4u")
 data = PackedByteArray(0, 0, 0, 0, 0, 0)
 name = &"selected"
-category = ""
-data_type = 0
-stride = 1
 
 [sub_resource type="Resource" id="Resource_0myxw"]
 script = ExtResource("4_7x1jh")
 data = PackedFloat32Array(1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0)
 name = &"uv_transform"
-category = ""
 data_type = 8
 stride = 6
 
@@ -200,15 +167,11 @@ stride = 6
 script = ExtResource("2_6xh4u")
 data = PackedByteArray(1, 1, 1, 1, 1, 1)
 name = &"visible"
-category = ""
-data_type = 0
-stride = 1
 
 [sub_resource type="Resource" id="Resource_ve23l"]
 script = ExtResource("4_7x1jh")
 data = PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
 name = &"color"
-category = ""
 data_type = 4
 stride = 4
 
@@ -216,15 +179,12 @@ stride = 4
 script = ExtResource("3_cyt5c")
 data = PackedInt32Array(0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5)
 name = &"face_index"
-category = ""
 data_type = 1
-stride = 1
 
 [sub_resource type="Resource" id="Resource_jigj2"]
 script = ExtResource("4_7x1jh")
 data = PackedFloat32Array(-1, 0, 0, -1, 0, 0, -1, 0, 0, -1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, -1, 0, 0, -1, 0, 0, -1, 0, 0, -1, 0, 0, 0, -1, 0, 0, -1, 0, 0, -1, 0, 0, -1)
 name = &"normal"
-category = ""
 data_type = 6
 stride = 3
 
@@ -232,15 +192,12 @@ stride = 3
 script = ExtResource("3_cyt5c")
 data = PackedInt32Array(0, 1, 2, 3, 7, 6, 5, 4, 1, 0, 4, 5, 2, 1, 5, 6, 3, 2, 6, 7, 0, 3, 7, 4)
 name = &"vertex_index"
-category = ""
 data_type = 1
-stride = 1
 
 [sub_resource type="Resource" id="Resource_smp8r"]
 script = ExtResource("4_7x1jh")
 data = PackedFloat32Array(0, 2, 0, 0, 2, 4, 0, 0, 4, 0, 0, 0, 8, 2, 0, 8, 2, 4, 8, 0, 4, 8, 0, 0)
 name = &"position"
-category = ""
 data_type = 6
 stride = 3
 
@@ -248,9 +205,6 @@ stride = 3
 script = ExtResource("2_6xh4u")
 data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0)
 name = &"selected"
-category = ""
-data_type = 0
-stride = 1
 
 [sub_resource type="Resource" id="Resource_y80st"]
 script = ExtResource("5_hfwtw")
@@ -291,15 +245,11 @@ face_vertex_data = {
 script = ExtResource("2_6xh4u")
 data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0)
 name = &"selected"
-category = ""
-data_type = 0
-stride = 1
 
 [sub_resource type="Resource" id="Resource_2orbd"]
 script = ExtResource("4_7x1jh")
 data = PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
 name = &"color"
-category = ""
 data_type = 4
 stride = 4
 
@@ -307,23 +257,17 @@ stride = 4
 script = ExtResource("3_cyt5c")
 data = PackedInt32Array(-1, -1, -1, -1, -1)
 name = &"material_index"
-category = ""
 data_type = 1
-stride = 1
 
 [sub_resource type="Resource" id="Resource_e6x8h"]
 script = ExtResource("2_6xh4u")
 data = PackedByteArray(0, 0, 0, 0, 0)
 name = &"selected"
-category = ""
-data_type = 0
-stride = 1
 
 [sub_resource type="Resource" id="Resource_26rt0"]
 script = ExtResource("4_7x1jh")
 data = PackedFloat32Array(1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0)
 name = &"uv_transform"
-category = ""
 data_type = 8
 stride = 6
 
@@ -331,15 +275,11 @@ stride = 6
 script = ExtResource("2_6xh4u")
 data = PackedByteArray(1, 1, 1, 1, 1)
 name = &"visible"
-category = ""
-data_type = 0
-stride = 1
 
 [sub_resource type="Resource" id="Resource_yguda"]
 script = ExtResource("4_7x1jh")
 data = PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
 name = &"color"
-category = ""
 data_type = 4
 stride = 4
 
@@ -347,15 +287,12 @@ stride = 4
 script = ExtResource("3_cyt5c")
 data = PackedInt32Array(0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4)
 name = &"face_index"
-category = ""
 data_type = 1
-stride = 1
 
 [sub_resource type="Resource" id="Resource_nci5d"]
 script = ExtResource("4_7x1jh")
 data = PackedFloat32Array(0, 0, -1, 0, 0, -1, 0, 0, -1, 0, 0, -1, 0, -1, 0, 0, -1, 0, 0, -1, 0, 0, -1, 0, -1, 0, 0, -1, 0, 0, -1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0)
 name = &"normal"
-category = ""
 data_type = 6
 stride = 3
 
@@ -363,15 +300,12 @@ stride = 3
 script = ExtResource("3_cyt5c")
 data = PackedInt32Array(0, 1, 2, 3, 4, 3, 2, 5, 5, 2, 1, 4, 5, 1, 0, 4, 0, 3)
 name = &"vertex_index"
-category = ""
 data_type = 1
-stride = 1
 
 [sub_resource type="Resource" id="Resource_a7wlb"]
 script = ExtResource("4_7x1jh")
 data = PackedFloat32Array(4, 2, 0, 0, 2, 0, 0, 0, 0, 4, 0, 0, 4, 0, 7, 0, 0, 7)
 name = &"position"
-category = ""
 data_type = 6
 stride = 3
 
@@ -379,9 +313,6 @@ stride = 3
 script = ExtResource("2_6xh4u")
 data = PackedByteArray(0, 0, 0, 0, 0, 0)
 name = &"selected"
-category = ""
-data_type = 0
-stride = 1
 
 [sub_resource type="Resource" id="Resource_3s0xg"]
 script = ExtResource("5_hfwtw")
@@ -426,88 +357,88 @@ face_vertex_data = {
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7x1jh"]
 
-[node name="Node3D" type="Node3D"]
+[node name="Node3D" type="Node3D" unique_id=55588130]
 
-[node name="PhysicsServer3DTest" type="Node3D" parent="." node_paths=PackedStringArray("visual")]
+[node name="PhysicsServer3DTest" type="Node3D" parent="." unique_id=1705606638 node_paths=PackedStringArray("visual")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4238, 3.11401, 15.1262)
 script = ExtResource("1_eaa0b")
 visual = NodePath("Visual")
 
-[node name="Area3D" type="Area3D" parent="PhysicsServer3DTest"]
+[node name="Area3D" type="Area3D" parent="PhysicsServer3DTest" unique_id=116712642]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PhysicsServer3DTest/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PhysicsServer3DTest/Area3D" unique_id=1327278606]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.59813, 0)
 shape = SubResource("CylinderShape3D_eaa0b")
 
-[node name="Visual" type="Node3D" parent="PhysicsServer3DTest"]
+[node name="Visual" type="Node3D" parent="PhysicsServer3DTest" unique_id=1214730020]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="PhysicsServer3DTest/Visual"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PhysicsServer3DTest/Visual" unique_id=719640306]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = SubResource("BoxMesh_jmx14")
 skeleton = NodePath("../..")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1218188497]
 environment = SubResource("Environment_6xh4u")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=466297702]
 transform = Transform3D(-0.224144, -0.5, 0.836516, -0.12941, 0.866025, 0.482963, -0.965926, -2.26673e-07, -0.258819, 38.3339, 10, 15)
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Camera3D" type="Camera3D" parent="." unique_id=282642473]
 transform = Transform3D(0.00713709, -0.442461, 0.896759, 0.00352137, 0.896788, 0.442447, -0.999968, 3.84183e-08, 0.00795853, 28.3885, 4.34035, 14.748)
 
-[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=1338973090]
 navigation_mesh = SubResource("NavigationMesh_6xh4u")
 
-[node name="CyclopsBlocks" type="Node3D" parent="NavigationRegion3D"]
+[node name="CyclopsBlocks" type="Node3D" parent="NavigationRegion3D" unique_id=690661288]
 script = ExtResource("1_jbqir")
 metadata/_custom_type_script = "uid://b7lx4ix0ldkpw"
 
-[node name="Block_0" type="Node3D" parent="NavigationRegion3D/CyclopsBlocks"]
+[node name="Block_0" type="Node3D" parent="NavigationRegion3D/CyclopsBlocks" unique_id=2107846100]
 transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 17.205, -20.48, -1, -20.17)
 script = ExtResource("1_48ne7")
 mesh_vector_data = SubResource("Resource_dgc65")
 
-[node name="Block_1" type="Node3D" parent="NavigationRegion3D/CyclopsBlocks"]
+[node name="Block_1" type="Node3D" parent="NavigationRegion3D/CyclopsBlocks" unique_id=597374436]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 8)
 script = ExtResource("1_48ne7")
 mesh_vector_data = SubResource("Resource_y80st")
 
-[node name="Block_3" type="Node3D" parent="NavigationRegion3D/CyclopsBlocks"]
+[node name="Block_3" type="Node3D" parent="NavigationRegion3D/CyclopsBlocks" unique_id=1590105863]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 12)
 script = ExtResource("1_48ne7")
 mesh_vector_data = SubResource("Resource_3s0xg")
 
-[node name="Target" type="Node3D" parent="."]
+[node name="Target" type="Node3D" parent="." unique_id=1909175111]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.94275, 1, 20.1704)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Target"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Target" unique_id=749347083]
 mesh = SubResource("CylinderMesh_7x1jh")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Target"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Target" unique_id=102629659]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Target/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Target/StaticBody3D" unique_id=1977920623]
 shape = SubResource("CylinderShape3D_jmx14")
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=190843687]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 5, 20)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D" unique_id=1463883640]
 mesh = SubResource("CapsuleMesh_cyt5c")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=1816332982]
 shape = SubResource("CapsuleShape3D_7x1jh")
 
-[node name="House" parent="." instance=ExtResource("8_7x1jh")]
+[node name="House" parent="." unique_id=522534659 instance=ExtResource("8_7x1jh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4323, 1, 13.9144)
 
-[node name="House2" parent="." instance=ExtResource("8_7x1jh")]
+[node name="House2" parent="." unique_id=1459629815 instance=ExtResource("8_7x1jh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.9413, 1.08118, 10.7659)
 
-[node name="Enemy" parent="." node_paths=PackedStringArray("navigationRegion3D") instance=ExtResource("7_hfwtw")]
+[node name="Enemy" parent="." unique_id=648994669 node_paths=PackedStringArray("navigationRegion3D") instance=ExtResource("7_hfwtw")]
 transform = Transform3D(-0.266548, 0, -0.96382, 0, 1, 0, 0.96382, 0, -0.266548, 8.57092, 1.00006, 25.6204)
 navigationRegion3D = NodePath("../NavigationRegion3D")
 
-[node name="SpawnRegion" parent="." instance=ExtResource("10_jmx14")]
+[node name="SpawnRegion" parent="." unique_id=1985992222 instance=ExtResource("10_jmx14")]
 transform = Transform3D(0.921775, 0, -0.387725, 0, 1, 0, 0.387725, 0, 0.921775, 5.997, 4.877, 20.444)
 
-[node name="SpawnManager" parent="." instance=ExtResource("11_eaa0b")]
+[node name="SpawnManager" parent="." unique_id=818102105 instance=ExtResource("11_eaa0b")]

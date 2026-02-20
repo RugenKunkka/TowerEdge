@@ -1,29 +1,29 @@
-[gd_scene load_steps=2 format=3 uid="uid://djlowj2pi405u"]
+[gd_scene format=3 uid="uid://djlowj2pi405u"]
 
-[ext_resource type="Script" path="res://addons/cyclops_level_builder/tools/tool_vertex_color_brush_settings_editor.gd" id="1_1a32u"]
+[ext_resource type="Script" uid="uid://diak64yxvd4h6" path="res://addons/cyclops_level_builder/tools/tool_vertex_color_brush_settings_editor.gd" id="1_1a32u"]
 
-[node name="PanelContainer" type="PanelContainer"]
+[node name="PanelContainer" type="PanelContainer" unique_id=1684507870]
 offset_right = 317.0
 offset_bottom = 269.0
 script = ExtResource("1_1a32u")
 
-[node name="MarginContainer2" type="MarginContainer" parent="."]
+[node name="MarginContainer2" type="MarginContainer" parent="." unique_id=1456710086]
 layout_mode = 2
 theme_override_constants/margin_left = 16
 
-[node name="GridContainer" type="GridContainer" parent="MarginContainer2"]
+[node name="GridContainer" type="GridContainer" parent="MarginContainer2" unique_id=1422179296]
 layout_mode = 2
 columns = 2
 
-[node name="Label3" type="Label" parent="MarginContainer2/GridContainer"]
+[node name="Label3" type="Label" parent="MarginContainer2/GridContainer" unique_id=536248426]
 layout_mode = 2
 text = "Component type"
 
-[node name="opbn_mask_type" type="OptionButton" parent="MarginContainer2/GridContainer"]
+[node name="opbn_mask_type" type="OptionButton" parent="MarginContainer2/GridContainer" unique_id=1546081488]
 unique_name_in_owner = true
 layout_mode = 2
-item_count = 3
 selected = 0
+item_count = 3
 popup/item_0/text = "None"
 popup/item_0/id = 0
 popup/item_1/text = "Vertex"
@@ -31,20 +31,20 @@ popup/item_1/id = 1
 popup/item_2/text = "Face"
 popup/item_2/id = 2
 
-[node name="Label" type="Label" parent="MarginContainer2/GridContainer"]
+[node name="Label" type="Label" parent="MarginContainer2/GridContainer" unique_id=2035476103]
 layout_mode = 2
 text = "Color"
 
-[node name="color_button" type="ColorPickerButton" parent="MarginContainer2/GridContainer"]
+[node name="color_button" type="ColorPickerButton" parent="MarginContainer2/GridContainer" unique_id=2080065251]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label5" type="Label" parent="MarginContainer2/GridContainer"]
+[node name="Label5" type="Label" parent="MarginContainer2/GridContainer" unique_id=906262299]
 layout_mode = 2
 text = "Radius"
 
-[node name="spin_radius" type="SpinBox" parent="MarginContainer2/GridContainer"]
+[node name="spin_radius" type="SpinBox" parent="MarginContainer2/GridContainer" unique_id=1458821834]
 unique_name_in_owner = true
 layout_mode = 2
 max_value = 1.0
@@ -52,11 +52,11 @@ step = 0.1
 value = 1.0
 allow_greater = true
 
-[node name="Label2" type="Label" parent="MarginContainer2/GridContainer"]
+[node name="Label2" type="Label" parent="MarginContainer2/GridContainer" unique_id=1630458621]
 layout_mode = 2
 text = "Strength"
 
-[node name="spin_strength" type="SpinBox" parent="MarginContainer2/GridContainer"]
+[node name="spin_strength" type="SpinBox" parent="MarginContainer2/GridContainer" unique_id=1857232539]
 unique_name_in_owner = true
 layout_mode = 2
 max_value = 1.0
@@ -64,11 +64,11 @@ step = 0.1
 value = 1.0
 allow_greater = true
 
-[node name="Label4" type="Label" parent="MarginContainer2/GridContainer"]
+[node name="Label4" type="Label" parent="MarginContainer2/GridContainer" unique_id=58813605]
 layout_mode = 2
 text = "Pen Pressure"
 
-[node name="check_pen_pressure_str" type="CheckBox" parent="MarginContainer2/GridContainer"]
+[node name="check_pen_pressure_str" type="CheckBox" parent="MarginContainer2/GridContainer" unique_id=1264395677]
 unique_name_in_owner = true
 layout_mode = 2
 text = "On"

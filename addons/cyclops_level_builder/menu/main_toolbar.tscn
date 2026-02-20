@@ -1,19 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://bm17ky7j4lwqc"]
+[gd_scene format=3 uid="uid://bm17ky7j4lwqc"]
 
-[ext_resource type="Script" path="res://addons/cyclops_level_builder/menu/main_toolbar.gd" id="1_7i5xc"]
-[ext_resource type="Script" path="res://addons/cyclops_level_builder/menu/action_popup_menu.gd" id="2_8w58b"]
+[ext_resource type="Script" uid="uid://dixpk5fj0gywy" path="res://addons/cyclops_level_builder/menu/main_toolbar.gd" id="1_7i5xc"]
+[ext_resource type="Script" uid="uid://cnpwona12fepv" path="res://addons/cyclops_level_builder/menu/action_popup_menu.gd" id="2_8w58b"]
 
-[node name="MainToolbar" type="PanelContainer"]
+[node name="MainToolbar" type="PanelContainer" unique_id=483904918]
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_7i5xc")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=208465009]
 layout_mode = 2
 
-[node name="MenuBar" type="MenuBar" parent="HBoxContainer"]
+[node name="MenuBar" type="MenuBar" parent="HBoxContainer" unique_id=741944843]
 layout_mode = 2
 
-[node name="Cyclops" type="PopupMenu" parent="HBoxContainer/MenuBar"]
+[node name="Cyclops" type="PopupMenu" parent="HBoxContainer/MenuBar" unique_id=673707726]
 unique_name_in_owner = true
+item_count = 2
+item_0/text = "Import Godot MeshInstance..."
+item_0/id = 1000
+item_1/text = "Import Cyclops File..."
+item_1/id = 1001
 script = ExtResource("2_8w58b")

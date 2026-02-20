@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dnx6nkjmgclg4"]
+[gd_scene format=3 uid="uid://dnx6nkjmgclg4"]
 
 [ext_resource type="Script" uid="uid://dhu7fri88ogm6" path="res://scripts/Enemy.cs" id="1_6xk8f"]
 [ext_resource type="Script" uid="uid://lse3wakd7315" path="res://scripts/HitBox.cs" id="2_8e3ao"]
@@ -119,7 +119,7 @@ _data = {
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_38ino"]
 radius = 0.869629
 
-[node name="Enemy" type="CharacterBody3D" node_paths=PackedStringArray("debugLabel", "attackCooldownTimer", "navAgent", "area", "attackAnimation")]
+[node name="Enemy" type="CharacterBody3D" unique_id=154066010 node_paths=PackedStringArray("debugLabel", "attackCooldownTimer", "navAgent", "area", "attackAnimation")]
 transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0, 0)
 collision_layer = 17
 collision_mask = 17
@@ -130,101 +130,99 @@ navAgent = NodePath("NavigationAgent3D")
 area = NodePath("SeparationArea")
 attackAnimation = NodePath("AnimationPlayer")
 
-[node name="Sprite3D" type="Sprite3D" parent="." node_paths=PackedStringArray("label")]
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=841149145 node_paths=PackedStringArray("label")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 3, 0)
 visible = false
 texture = SubResource("ViewportTexture_8e3ao")
 script = ExtResource("2_38ino")
 label = NodePath("SubViewport/Label")
 
-[node name="SubViewport" type="SubViewport" parent="Sprite3D"]
+[node name="SubViewport" type="SubViewport" parent="Sprite3D" unique_id=646258164]
 transparent_bg = true
 
-[node name="Label" type="Label" parent="Sprite3D/SubViewport"]
+[node name="Label" type="Label" parent="Sprite3D/SubViewport" unique_id=214002428]
 offset_right = 40.0
 offset_bottom = 23.0
 theme_override_font_sizes/font_size = 35
 text = "aaaaaaaaaaaa"
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1829068247]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 material_override = SubResource("StandardMaterial3D_8e3ao")
 mesh = SubResource("CapsuleMesh_7x1jh")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1124611341]
 transform = Transform3D(1, 0, 0, 0, 0.334267, 0, 0, 0, 0.466005, 0, 1.43097, -0.405548)
 mesh = SubResource("BoxMesh_8e3ao")
 
-[node name="HitBox" type="Area3D" parent="."]
+[node name="HitBox" type="Area3D" parent="." unique_id=809391361]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 collision_layer = 16
 collision_mask = 17
 monitorable = false
 script = ExtResource("2_8e3ao")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="HitBox"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitBox" unique_id=1810565003]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.126103, -1.13237)
 shape = SubResource("BoxShape3D_6xh4u")
 disabled = true
 debug_color = Color(0.941176, 0.0156863, 0.027451, 0.796078)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="HitBox"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="HitBox" unique_id=1458022163]
 transform = Transform3D(0.877285, 0, 0, 0, 0.4, 0, 0, 0, 0.934641, 0, 0.13063, -1.13401)
 visible = false
 mesh = SubResource("BoxMesh_6xk8f")
 
-[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1662010577]
 debug_enabled = true
 
-[node name="DetectionRange" type="Area3D" parent="."]
+[node name="DetectionRange" type="Area3D" parent="." unique_id=1481262816]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 collision_layer = 16
 monitorable = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionRange"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionRange" unique_id=710768961]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0505372, 0)
 shape = SubResource("CylinderShape3D_cyt5c")
 debug_color = Color(0.764706, 0.447059, 0.0941176, 0.807843)
 
-[node name="PersecutionRadious" type="Area3D" parent="."]
+[node name="PersecutionRadious" type="Area3D" parent="." unique_id=1093717426]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 collision_layer = 16
 monitorable = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PersecutionRadious"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PersecutionRadious" unique_id=927888041]
 shape = SubResource("CylinderShape3D_7x1jh")
 debug_color = Color(0.924431, 0.181294, 0.518813, 0.42)
 
-[node name="AttackRange" type="Area3D" parent="."]
+[node name="AttackRange" type="Area3D" parent="." unique_id=829170105]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 collision_layer = 17
 monitorable = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="AttackRange"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AttackRange" unique_id=1136109144]
 shape = SubResource("CylinderShape3D_hfwtw")
 debug_color = Color(0, 0.87451, 0.0509804, 0.717647)
 
-[node name="CharacterGameRing" type="Node3D" parent="."]
+[node name="CharacterGameRing" type="Node3D" parent="." unique_id=1022063516]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
-[node name="Skeleton3D" type="Skeleton3D" parent="CharacterGameRing"]
+[node name="Skeleton3D" type="Skeleton3D" parent="CharacterGameRing" unique_id=1643336582]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_2mu0v")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1635695410]
+libraries/ = SubResource("AnimationLibrary_2mu0v")
 
-[node name="AttackCooldownTimer" type="Timer" parent="."]
+[node name="AttackCooldownTimer" type="Timer" parent="." unique_id=17910541]
 one_shot = true
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=129924136]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_8e3ao")
 
-[node name="SeparationArea" type="Area3D" parent="."]
+[node name="SeparationArea" type="Area3D" parent="." unique_id=1344543037]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SeparationArea"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SeparationArea" unique_id=975895477]
 transform = Transform3D(0.999996, 0, 0, 0, 1, 0, 0, 0, 0.999996, 0, 0, 0)
 shape = SubResource("CylinderShape3D_38ino")

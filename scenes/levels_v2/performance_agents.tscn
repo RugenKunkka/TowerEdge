@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://chtk1clyh0bv0"]
+[gd_scene format=3 uid="uid://chtk1clyh0bv0"]
 
 [ext_resource type="Script" uid="uid://287sjfsjhm3s" path="res://scripts-v2/SpatialHashing/SpatialGridManager.cs" id="1_ben0a"]
 [ext_resource type="Script" uid="uid://b42st6bfepuex" path="res://scripts-v2/SpawnWaves/WaveManager.cs" id="2_fv17d"]
@@ -17,50 +17,50 @@ size = Vector3(20, 0.2, 20)
 
 [sub_resource type="Environment" id="Environment_vvhx7"]
 
-[node name="PerformanceAgents" type="Node3D"]
+[node name="PerformanceAgents" type="Node3D" unique_id=1022482740]
 
-[node name="SpatialGridManager" type="Node3D" parent="."]
+[node name="SpatialGridManager" type="Node3D" parent="." unique_id=1924912901]
 script = ExtResource("1_ben0a")
 
-[node name="WaveManager" type="Node3D" parent="." node_paths=PackedStringArray("WaveSpawnersList")]
+[node name="WaveManager" type="Node3D" parent="." unique_id=2065747675 node_paths=PackedStringArray("WaveSpawnersList")]
 script = ExtResource("2_fv17d")
 WaveSpawnersList = [NodePath("WaveSpawner0")]
 WavesData = [ExtResource("3_vvhx7")]
 
-[node name="WaveSpawner0" type="Node3D" parent="WaveManager" node_paths=PackedStringArray("SpawnPointsList")]
+[node name="WaveSpawner0" type="Node3D" parent="WaveManager" unique_id=1794208174 node_paths=PackedStringArray("SpawnPointsList")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.36489087, 3.2619052)
 script = ExtResource("3_xrrc5")
 spawnerId = "waveSpawner1"
 SpawnPointsList = [NodePath("SpawnPoint0"), NodePath("SpawnPoint1"), NodePath("SpawnPoint2"), NodePath("SpawnPoint3"), NodePath("SpawnPoint4")]
 
-[node name="SpawnPoint0" type="Marker3D" parent="WaveManager/WaveSpawner0"]
+[node name="SpawnPoint0" type="Marker3D" parent="WaveManager/WaveSpawner0" unique_id=1752358404]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
 
-[node name="SpawnPoint1" type="Marker3D" parent="WaveManager/WaveSpawner0"]
+[node name="SpawnPoint1" type="Marker3D" parent="WaveManager/WaveSpawner0" unique_id=1559907260]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1)
 
-[node name="SpawnPoint2" type="Marker3D" parent="WaveManager/WaveSpawner0"]
+[node name="SpawnPoint2" type="Marker3D" parent="WaveManager/WaveSpawner0" unique_id=1104604570]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
 
-[node name="SpawnPoint3" type="Marker3D" parent="WaveManager/WaveSpawner0"]
+[node name="SpawnPoint3" type="Marker3D" parent="WaveManager/WaveSpawner0" unique_id=2055425726]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -1)
 
-[node name="SpawnPoint4" type="Marker3D" parent="WaveManager/WaveSpawner0"]
+[node name="SpawnPoint4" type="Marker3D" parent="WaveManager/WaveSpawner0" unique_id=205131596]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
 
-[node name="Gound" type="StaticBody3D" parent="."]
+[node name="Gound" type="StaticBody3D" parent="." unique_id=696486230]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Gound"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Gound" unique_id=2047381059]
 mesh = SubResource("PlaneMesh_fv17d")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Gound"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Gound" unique_id=2081964659]
 shape = SubResource("BoxShape3D_xrrc5")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=914300943]
 environment = SubResource("Environment_vvhx7")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="WorldEnvironment"]
+[node name="OmniLight3D" type="OmniLight3D" parent="WorldEnvironment" unique_id=1995389911]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -2)
 
-[node name="Camera3D" type="Camera3D" parent="WorldEnvironment"]
-transform = Transform3D(0.9711551, 0.051626004, -0.2327929, 0, 0.9762809, 0.21650779, 0.2384487, -0.21026266, 0.9481202, -2.6614041, 1.8678409, 3.081959)
+[node name="Camera3D" type="Camera3D" parent="WorldEnvironment" unique_id=1540764294]
+transform = Transform3D(0.9711551, 0.051626004, -0.2327929, 0, 0.9762809, 0.21650779, 0.2384487, -0.21026266, 0.9481202, 1.8410373, 1.8678409, 8.546192)

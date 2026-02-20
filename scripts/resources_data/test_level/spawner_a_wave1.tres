@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="WaveRes" load_steps=4 format=3 uid="uid://cl7762jyqhhqt"]
+[gd_resource type="Resource" script_class="WaveRes" format=3 uid="uid://cl7762jyqhhqt"]
 
 [ext_resource type="Resource" uid="uid://dsdohet05vfro" path="res://scripts/resources_data/test_level/spawner_a/wave1_footman.tres" id="1_ss6tl"]
 [ext_resource type="Resource" uid="uid://dboacnc4131lk" path="res://scripts/resources_data/test_level/spawner_a/wave1_archer.tres" id="2_vb6dh"]

@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://caoy37s0y5a8y"]
+[gd_scene format=3 uid="uid://caoy37s0y5a8y"]
 
-[ext_resource type="Script" path="res://addons/cyclops_level_builder/docks/tool_properties/tool_properties_dock.gd" id="1_7262j"]
+[ext_resource type="Script" uid="uid://jkvx4yt4e0gr" path="res://addons/cyclops_level_builder/docks/tool_properties/tool_properties_dock.gd" id="1_7262j"]
 
-[node name="Tool Properties" type="Control"]
+[node name="Tool Properties" type="Control" unique_id=1520306879]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,7 +11,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_7262j")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="."]
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=358562270]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

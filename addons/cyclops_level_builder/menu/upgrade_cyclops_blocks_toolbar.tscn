@@ -1,13 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://u52a8gflbktl"]
+[gd_scene format=3 uid="uid://u52a8gflbktl"]
 
-[ext_resource type="Script" path="res://addons/cyclops_level_builder/menu/upgrade_cyclops_blocks_toolbar.gd" id="1_pbwhi"]
+[ext_resource type="Script" uid="uid://ccbkjuxaao57k" path="res://addons/cyclops_level_builder/menu/upgrade_cyclops_blocks_toolbar.gd" id="1_pbwhi"]
 
-[node name="PanelContainer" type="PanelContainer"]
+[node name="PanelContainer" type="PanelContainer" unique_id=2083186143]
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_pbwhi")
 
-[node name="bn_upgrade" type="Button" parent="."]
+[node name="bn_upgrade" type="Button" parent="." unique_id=1723400144]
 layout_mode = 2
 text = "Upgrade CyclopsBlocks"
 

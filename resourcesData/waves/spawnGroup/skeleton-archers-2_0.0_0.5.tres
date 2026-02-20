@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ResSpawnGroup" load_steps=3 format=3 uid="uid://dmp8ricw82hbu"]
+[gd_resource type="Resource" format=3 uid="uid://dmp8ricw82hbu"]
 
 [ext_resource type="Script" uid="uid://pql0rqobtb0i" path="res://scripts-v2/SpawnWaves/ResScripts/ResSpawnGroup.cs" id="1_0q173"]
 [ext_resource type="PackedScene" uid="uid://cmff2rxye30v7" path="res://scenes/enemies/skeleton_archer.tscn" id="1_vctpj"]

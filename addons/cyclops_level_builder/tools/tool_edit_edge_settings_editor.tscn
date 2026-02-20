@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://d3hfpe2pe0ml2"]
+[gd_scene format=3 uid="uid://d3hfpe2pe0ml2"]
 
-[ext_resource type="Script" path="res://addons/cyclops_level_builder/tools/tool_edit_edge_settings_editor.gd" id="1_a1oyt"]
+[ext_resource type="Script" uid="uid://dyvsf0c6w4cg0" path="res://addons/cyclops_level_builder/tools/tool_edit_edge_settings_editor.gd" id="1_a1oyt"]
 
-[node name="ToolMoveSettingsEditor" type="PanelContainer"]
+[node name="ToolMoveSettingsEditor" type="PanelContainer" unique_id=282513782]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -12,19 +12,19 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_a1oyt")
 
-[node name="GridContainer" type="GridContainer" parent="."]
+[node name="GridContainer" type="GridContainer" parent="." unique_id=1038626141]
 layout_mode = 2
 columns = 2
 
-[node name="Label" type="Label" parent="GridContainer"]
+[node name="Label" type="Label" parent="GridContainer" unique_id=1025810025]
 layout_mode = 2
 text = "Transform space"
 
-[node name="transform_space" type="OptionButton" parent="GridContainer"]
+[node name="transform_space" type="OptionButton" parent="GridContainer" unique_id=229226805]
 unique_name_in_owner = true
 layout_mode = 2
-item_count = 5
 selected = 0
+item_count = 5
 popup/item_0/text = "GLOBAL"
 popup/item_0/id = 0
 popup/item_1/text = "LOCAL"
@@ -36,11 +36,11 @@ popup/item_3/id = 3
 popup/item_4/text = "PARENT"
 popup/item_4/id = 4
 
-[node name="Label2" type="Label" parent="GridContainer"]
+[node name="Label2" type="Label" parent="GridContainer" unique_id=2118040915]
 layout_mode = 2
 text = "Triplanar lock UVs"
 
-[node name="check_correct_uvs" type="CheckBox" parent="GridContainer"]
+[node name="check_correct_uvs" type="CheckBox" parent="GridContainer" unique_id=494338086]
 unique_name_in_owner = true
 layout_mode = 2
 text = "On"

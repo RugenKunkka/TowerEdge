@@ -1,25 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://c165arqp73p1k"]
+[gd_scene format=3 uid="uid://c165arqp73p1k"]
 
-[ext_resource type="Script" path="res://addons/cyclops_level_builder/snapping/snapping_system_grid_properties_editor.gd" id="1_jva1e"]
+[ext_resource type="Script" uid="uid://caq85frjpx21l" path="res://addons/cyclops_level_builder/snapping/snapping_system_grid_properties_editor.gd" id="1_jva1e"]
 [ext_resource type="PackedScene" uid="uid://diibmlqy1mpqb" path="res://addons/cyclops_level_builder/controls/numeric_line_edit.tscn" id="2_3bhn6"]
 [ext_resource type="PackedScene" uid="uid://cphtpklx81l3w" path="res://addons/cyclops_level_builder/controls/vector3_edit.tscn" id="2_beo4d"]
 
-[node name="snapping_system_grid_properties" type="PanelContainer"]
+[node name="snapping_system_grid_properties" type="PanelContainer" unique_id=413589850]
 offset_right = 400.0
 offset_bottom = 337.0
 script = ExtResource("1_jva1e")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1966990255]
 layout_mode = 2
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer" unique_id=155192707]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2"]
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2" unique_id=1776961337]
 layout_mode = 2
 text = "Power of 2 Scale"
 
-[node name="spin_power_of_two" type="SpinBox" parent="VBoxContainer/HBoxContainer2"]
+[node name="spin_power_of_two" type="SpinBox" parent="VBoxContainer/HBoxContainer2" unique_id=1587078825]
 unique_name_in_owner = true
 layout_mode = 2
 min_value = -16.0
@@ -28,36 +28,36 @@ rounded = true
 allow_greater = true
 allow_lesser = true
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer" unique_id=1115466423]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer3"]
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer3" unique_id=1250564205]
 layout_mode = 2
 text = "Unit size:"
 
-[node name="ed_unit_size" parent="VBoxContainer/HBoxContainer3" instance=ExtResource("2_3bhn6")]
+[node name="ed_unit_size" parent="VBoxContainer/HBoxContainer3" unique_id=1845631562 instance=ExtResource("2_3bhn6")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="bn_presets" type="Button" parent="VBoxContainer/HBoxContainer3"]
+[node name="bn_presets" type="Button" parent="VBoxContainer/HBoxContainer3" unique_id=363719552]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Presets"
 
-[node name="check_use_subdiv" type="CheckBox" parent="VBoxContainer"]
+[node name="check_use_subdiv" type="CheckBox" parent="VBoxContainer" unique_id=1523951341]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Use Subdivisions"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=446696349]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=342876998]
 layout_mode = 2
 text = "Subdivisions"
 
-[node name="spin_subdiv" type="SpinBox" parent="VBoxContainer/HBoxContainer"]
+[node name="spin_subdiv" type="SpinBox" parent="VBoxContainer/HBoxContainer" unique_id=767768950]
 unique_name_in_owner = true
 layout_mode = 2
 min_value = 1.0
@@ -66,62 +66,62 @@ value = 10.0
 rounded = true
 allow_greater = true
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer" unique_id=1365084607]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer2"]
+[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer2" unique_id=1117890259]
 layout_mode = 2
 text = "Transform:"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/VBoxContainer2"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/VBoxContainer2" unique_id=1194321523]
 layout_mode = 2
 
-[node name="bn_presets_transform" type="Button" parent="VBoxContainer/VBoxContainer2/HBoxContainer"]
+[node name="bn_presets_transform" type="Button" parent="VBoxContainer/VBoxContainer2/HBoxContainer" unique_id=1120514420]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Transform Presets"
 
-[node name="GridContainer" type="GridContainer" parent="VBoxContainer/VBoxContainer2"]
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/VBoxContainer2" unique_id=1537885823]
 layout_mode = 2
 columns = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer2/GridContainer"]
+[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer2/GridContainer" unique_id=2073781370]
 layout_mode = 2
 text = "Translate"
 
-[node name="xform_translate" parent="VBoxContainer/VBoxContainer2/GridContainer" instance=ExtResource("2_beo4d")]
+[node name="xform_translate" parent="VBoxContainer/VBoxContainer2/GridContainer" unique_id=1062643348 instance=ExtResource("2_beo4d")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label2" type="Label" parent="VBoxContainer/VBoxContainer2/GridContainer"]
+[node name="Label2" type="Label" parent="VBoxContainer/VBoxContainer2/GridContainer" unique_id=1100967604]
 layout_mode = 2
 text = "Rotate"
 
-[node name="xform_rotate" parent="VBoxContainer/VBoxContainer2/GridContainer" instance=ExtResource("2_beo4d")]
+[node name="xform_rotate" parent="VBoxContainer/VBoxContainer2/GridContainer" unique_id=1625922392 instance=ExtResource("2_beo4d")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label3" type="Label" parent="VBoxContainer/VBoxContainer2/GridContainer"]
+[node name="Label3" type="Label" parent="VBoxContainer/VBoxContainer2/GridContainer" unique_id=1783982381]
 layout_mode = 2
 text = "Scale"
 
-[node name="xform_scale" parent="VBoxContainer/VBoxContainer2/GridContainer" instance=ExtResource("2_beo4d")]
+[node name="xform_scale" parent="VBoxContainer/VBoxContainer2/GridContainer" unique_id=1897442306 instance=ExtResource("2_beo4d")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label4" type="Label" parent="VBoxContainer/VBoxContainer2/GridContainer"]
+[node name="Label4" type="Label" parent="VBoxContainer/VBoxContainer2/GridContainer" unique_id=1319688400]
 layout_mode = 2
 text = "Shear"
 
-[node name="xform_shear" parent="VBoxContainer/VBoxContainer2/GridContainer" instance=ExtResource("2_beo4d")]
+[node name="xform_shear" parent="VBoxContainer/VBoxContainer2/GridContainer" unique_id=252742614 instance=ExtResource("2_beo4d")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="popup_presets" type="PopupMenu" parent="."]
+[node name="popup_presets" type="PopupMenu" parent="." unique_id=95413805]
 unique_name_in_owner = true
 item_count = 3
 item_0/text = "Meters"
@@ -131,7 +131,7 @@ item_1/id = 1
 item_2/text = "Feet"
 item_2/id = 2
 
-[node name="popup_transform_presets" type="PopupMenu" parent="."]
+[node name="popup_transform_presets" type="PopupMenu" parent="." unique_id=196647209]
 unique_name_in_owner = true
 item_count = 2
 item_0/text = "Cube Grid"

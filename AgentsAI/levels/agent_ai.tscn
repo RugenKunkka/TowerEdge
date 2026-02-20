@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dtt6jqhuemel3"]
+[gd_scene format=3 uid="uid://dtt6jqhuemel3"]
 
 [ext_resource type="Script" uid="uid://dbrboiq76rt56" path="res://AgentsAI/levels/AgentAI.cs" id="1_pkygd"]
 [ext_resource type="Script" uid="uid://davfneeudne1f" path="res://scripts/EnemyDebugLabel.cs" id="2_m18hi"]
@@ -15,75 +15,75 @@ radius = 0.869629
 [sub_resource type="ViewportTexture" id="ViewportTexture_3ae1e"]
 viewport_path = NodePath("Sprite3D/SubViewport")
 
-[node name="AgentAI" type="CharacterBody3D" node_paths=PackedStringArray("debugLabel", "area")]
+[node name="AgentAI" type="CharacterBody3D" unique_id=237584587 node_paths=PackedStringArray("debugLabel", "area")]
 script = ExtResource("1_pkygd")
 debugLabel = NodePath("Sprite3D/SubViewport/Label")
 area = NodePath("SeparationArea")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1455091676]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_rjqix")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=371200683]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = SubResource("CapsuleMesh_rjqix")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1113819350]
 transform = Transform3D(1, 0, 0, 0, 0.406418, 0, 0, 0, 0.60499, 0, 1.37201, -0.483521)
 mesh = SubResource("BoxMesh_rjqix")
 
-[node name="SeparationArea" type="Area3D" parent="."]
+[node name="SeparationArea" type="Area3D" parent="." unique_id=44722916]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SeparationArea"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SeparationArea" unique_id=1363213214]
 shape = SubResource("CylinderShape3D_rjqix")
 
-[node name="Sprite3D" type="Sprite3D" parent="." node_paths=PackedStringArray("label")]
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1029244258 node_paths=PackedStringArray("label")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 3, 0)
 texture = SubResource("ViewportTexture_3ae1e")
 script = ExtResource("2_m18hi")
 label = NodePath("SubViewport/Label")
 
-[node name="SubViewport" type="SubViewport" parent="Sprite3D"]
+[node name="SubViewport" type="SubViewport" parent="Sprite3D" unique_id=1074334686]
 transparent_bg = true
 size = Vector2i(1024, 512)
 
-[node name="Label" type="Label" parent="Sprite3D/SubViewport"]
+[node name="Label" type="Label" parent="Sprite3D/SubViewport" unique_id=1483687601]
 offset_right = 40.0
 offset_bottom = 23.0
 theme_override_font_sizes/font_size = 35
 text = "aaaaaaaaaaaa"
 
-[node name="Raycasts" type="Node3D" parent="."]
+[node name="Raycasts" type="Node3D" parent="." unique_id=1416756400]
 
-[node name="RayCast3D" type="RayCast3D" parent="Raycasts"]
+[node name="RayCast3D" type="RayCast3D" parent="Raycasts" unique_id=514365331]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 target_position = Vector3(2, 0, 0)
 
-[node name="RayCast3D2" type="RayCast3D" parent="Raycasts"]
+[node name="RayCast3D2" type="RayCast3D" parent="Raycasts" unique_id=2070027843]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 target_position = Vector3(2, 0, -2)
 
-[node name="RayCast3D3" type="RayCast3D" parent="Raycasts"]
+[node name="RayCast3D3" type="RayCast3D" parent="Raycasts" unique_id=905568848]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 target_position = Vector3(0, 0, -2)
 
-[node name="RayCast3D4" type="RayCast3D" parent="Raycasts"]
+[node name="RayCast3D4" type="RayCast3D" parent="Raycasts" unique_id=738068341]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 target_position = Vector3(-2, 0, -2)
 
-[node name="RayCast3D5" type="RayCast3D" parent="Raycasts"]
+[node name="RayCast3D5" type="RayCast3D" parent="Raycasts" unique_id=356251367]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 target_position = Vector3(-2, 0, 0)
 
-[node name="RayCast3D6" type="RayCast3D" parent="Raycasts"]
+[node name="RayCast3D6" type="RayCast3D" parent="Raycasts" unique_id=971586661]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 target_position = Vector3(-2, 0, 2)
 
-[node name="RayCast3D7" type="RayCast3D" parent="Raycasts"]
+[node name="RayCast3D7" type="RayCast3D" parent="Raycasts" unique_id=145404778]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 target_position = Vector3(0, 0, 2)
 
-[node name="RayCast3D8" type="RayCast3D" parent="Raycasts"]
+[node name="RayCast3D8" type="RayCast3D" parent="Raycasts" unique_id=719668246]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 target_position = Vector3(2, 0, 2)

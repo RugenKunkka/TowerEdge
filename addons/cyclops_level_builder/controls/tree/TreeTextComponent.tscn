@@ -1,18 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://7xg6fyk4dust"]
+[gd_scene format=3 uid="uid://7xg6fyk4dust"]
 
-[ext_resource type="Script" path="res://addons/cyclops_level_builder/controls/tree/TreeTextComponent.gd" id="1_eruho"]
+[ext_resource type="Script" uid="uid://mdihno6r2s6" path="res://addons/cyclops_level_builder/controls/tree/TreeTextComponent.gd" id="1_eruho"]
 
-[node name="TreeTextLine" type="PanelContainer"]
+[node name="TreeTextLine" type="PanelContainer" unique_id=920049211]
 offset_right = 216.0
 offset_bottom = 31.0
 script = ExtResource("1_eruho")
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=1469713008]
 unique_name_in_owner = true
 layout_mode = 2
-text = "text label"
 
-[node name="LineEdit" type="LineEdit" parent="."]
+[node name="LineEdit" type="LineEdit" parent="." unique_id=145196911]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 text = "line edit"

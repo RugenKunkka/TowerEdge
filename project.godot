@@ -12,12 +12,12 @@ config_version=5
 
 config/name="TowerEdge"
 run/main_scene="uid://chtk1clyh0bv0"
-config/features=PackedStringArray("4.5", "C#", "Mobile")
+config/features=PackedStringArray("4.6", "C#", "Mobile")
 config/icon="res://icon.svg"
 
 [autoload]
 
-CyclopsAutoload="*res://addons/cyclops_level_builder/cyclops_global_scene.tscn"
+CyclopsAutoload="*uid://4siqre3jhe80"
 GOBAL_PathfindingManager="*res://scripts/singletons_autoloads/PathfindingManager.cs"
 GLOBAL_SpatialHashMapping="*res://scripts/singletons_autoloads/SpatialHashMapping.cs"
 

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="EnemyWaveRes" load_steps=3 format=3 uid="uid://dsdohet05vfro"]
+[gd_resource type="Resource" script_class="EnemyWaveRes" format=3 uid="uid://dsdohet05vfro"]
 
 [ext_resource type="PackedScene" uid="uid://dnx6nkjmgclg4" path="res://scenes/enemies/enemy.tscn" id="1_665y5"]
 [ext_resource type="Script" uid="uid://bas36lm4qwga8" path="res://scripts/resources_scripts/EnemyWaveRes.cs" id="2_y6m6a"]

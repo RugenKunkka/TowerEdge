@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://deq63kfs27dae"]
+[gd_scene format=3 uid="uid://deq63kfs27dae"]
 
 [ext_resource type="Script" uid="uid://drfkrxrslfeso" path="res://scripts/tests_scripts/AvoidEnemy.cs" id="1_vsk1c"]
 
@@ -8,38 +8,38 @@
 
 [sub_resource type="BoxMesh" id="BoxMesh_45y12"]
 
-[node name="AvoidEnemy" type="CharacterBody3D" node_paths=PackedStringArray("raycastList")]
+[node name="AvoidEnemy" type="CharacterBody3D" unique_id=851959862 node_paths=PackedStringArray("raycastList")]
 script = ExtResource("1_vsk1c")
 maxSpeed = 3.0
 raycastList = [NodePath("Raycasts/RayCast3D"), NodePath("Raycasts/RayCast3D2"), NodePath("Raycasts/RayCast3D3")]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=482495116]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_mgsg2")
 
-[node name="Visual" type="Node3D" parent="."]
+[node name="Visual" type="Node3D" parent="." unique_id=1621942106]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Visual"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Visual" unique_id=1842726215]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = SubResource("CapsuleMesh_45y12")
 skeleton = NodePath("../..")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Visual"]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Visual" unique_id=1253293261]
 transform = Transform3D(1, 0, 0, 0, 0.411707, 0, 0, 0, 0.458056, 0, 1.3302, -0.605957)
 mesh = SubResource("BoxMesh_45y12")
 skeleton = NodePath("../MeshInstance3D")
 
-[node name="Raycasts" type="Node3D" parent="."]
+[node name="Raycasts" type="Node3D" parent="." unique_id=681799075]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 
-[node name="RayCast3D" type="RayCast3D" parent="Raycasts"]
+[node name="RayCast3D" type="RayCast3D" parent="Raycasts" unique_id=2000371596]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 target_position = Vector3(5, 0, 0)
 
-[node name="RayCast3D2" type="RayCast3D" parent="Raycasts"]
+[node name="RayCast3D2" type="RayCast3D" parent="Raycasts" unique_id=966080841]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0.5)
 target_position = Vector3(5, 0, 0)
 
-[node name="RayCast3D3" type="RayCast3D" parent="Raycasts"]
+[node name="RayCast3D3" type="RayCast3D" parent="Raycasts" unique_id=536284537]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -0.5)
 target_position = Vector3(5, 0, 0)
