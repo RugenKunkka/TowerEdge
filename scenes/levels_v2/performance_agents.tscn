@@ -5,6 +5,10 @@
 [ext_resource type="Resource" uid="uid://b7p3v8xrhclkb" path="res://resourcesData/waves/waveDefinition/level_performanceAgents_w1.tres" id="3_vvhx7"]
 [ext_resource type="Script" uid="uid://cn8yavi5u06v" path="res://scripts-v2/SpawnWaves/WaveSpawner.cs" id="3_xrrc5"]
 
+[sub_resource type="NavigationMesh" id="NavigationMesh_vvhx7"]
+vertices = PackedVector3Array(-1, 0.4, -5.25, 0, 0.4, -5.5, 0, 0.4, -9.5, -9.5, 0.4, -9.5, -9.5, 0.4, -3.75, -1, 0.4, -3.75, 1, 0.4, -5.5, 1.25, 0.4, -5, 9.5, 0.4, -4.75, 9.5, 0.4, -9.5, 1.25, 0.4, -3.5, 0.25, 0.4, -3.25, 0.25, 0.4, 9.5, 9.5, 0.4, 9.5, -0.75, 0.4, -3.25, -9.5, 0.4, 9.5)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(3, 0, 4), PackedInt32Array(0, 5, 4), PackedInt32Array(6, 1, 2), PackedInt32Array(6, 2, 7), PackedInt32Array(7, 2, 8), PackedInt32Array(8, 2, 9), PackedInt32Array(10, 7, 8), PackedInt32Array(10, 8, 11), PackedInt32Array(11, 8, 12), PackedInt32Array(12, 8, 13), PackedInt32Array(5, 14, 4), PackedInt32Array(4, 14, 15), PackedInt32Array(15, 14, 12), PackedInt32Array(14, 11, 12)]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xrrc5"]
 albedo_color = Color(0.29219002, 0.29219005, 0.29219002, 0.85882354)
 
@@ -15,9 +19,77 @@ size = Vector2(20, 20)
 [sub_resource type="BoxShape3D" id="BoxShape3D_xrrc5"]
 size = Vector3(20, 0.2, 20)
 
+[sub_resource type="BoxMesh" id="BoxMesh_vvhx7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vvhx7"]
+
+[sub_resource type="Curve3D" id="Curve3D_vvhx7"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -3, 0, 0, 0, 0, 0, 0, -3.5369568, 0, -3.3146973),
+"tilts": PackedFloat32Array(0, 0, 0)
+}
+point_count = 3
+
+[sub_resource type="Curve3D" id="Curve3D_2stuw"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -2.5, 0, 0, 0, 0, 0, 0, -1.3845215, 0, -6),
+"tilts": PackedFloat32Array(0, 0, 0)
+}
+point_count = 3
+
+[sub_resource type="Curve3D" id="Curve3D_i7nqi"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -2.625, 0, 0, 0, 0, 0, 0, 0, 0, -7.34),
+"tilts": PackedFloat32Array(0, 0, 0)
+}
+point_count = 3
+
+[sub_resource type="Curve3D" id="Curve3D_1qwuh"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -3.1, 0, 0, 0, 0, 0, 0, 2.43, 0, -4.677886),
+"tilts": PackedFloat32Array(0, 0, 0)
+}
+point_count = 3
+
+[sub_resource type="Curve3D" id="Curve3D_hnytf"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -2.005, 0, 0, 0, 0, 0, 0, 2.58, 0, -1.63),
+"tilts": PackedFloat32Array(0, 0, 0)
+}
+point_count = 3
+
 [sub_resource type="Environment" id="Environment_vvhx7"]
 
 [node name="PerformanceAgents" type="Node3D" unique_id=1022482740]
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=1890747737]
+navigation_mesh = SubResource("NavigationMesh_vvhx7")
+
+[node name="Gound" type="StaticBody3D" parent="NavigationRegion3D" unique_id=696486230]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/Gound" unique_id=2047381059]
+mesh = SubResource("PlaneMesh_fv17d")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Gound" unique_id=2081964659]
+shape = SubResource("BoxShape3D_xrrc5")
+
+[node name="Obstacles" type="Node3D" parent="NavigationRegion3D" unique_id=64745781]
+
+[node name="Wall" type="Node3D" parent="NavigationRegion3D/Obstacles" unique_id=1953268796]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.28125)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/Obstacles/Wall" unique_id=1795696637]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_vvhx7")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/Obstacles/Wall" unique_id=415717964]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Obstacles/Wall/StaticBody3D" unique_id=1490325431]
+shape = SubResource("BoxShape3D_vvhx7")
+
+[node name="NavigationObstacle3D" type="NavigationObstacle3D" parent="NavigationRegion3D/Obstacles/Wall" unique_id=1919848205]
+radius = 1.0
 
 [node name="SpatialGridManager" type="Node3D" parent="." unique_id=1924912901]
 script = ExtResource("1_ben0a")
@@ -27,11 +99,12 @@ script = ExtResource("2_fv17d")
 WaveSpawnersList = [NodePath("WaveSpawner0")]
 WavesData = [ExtResource("3_vvhx7")]
 
-[node name="WaveSpawner0" type="Node3D" parent="WaveManager" unique_id=1794208174 node_paths=PackedStringArray("SpawnPointsList")]
+[node name="WaveSpawner0" type="Node3D" parent="WaveManager" unique_id=1794208174 node_paths=PackedStringArray("SpawnPointsList", "SpawnPathsList")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.36489087, 3.2619052)
 script = ExtResource("3_xrrc5")
 spawnerId = "waveSpawner1"
 SpawnPointsList = [NodePath("SpawnPoint0"), NodePath("SpawnPoint1"), NodePath("SpawnPoint2"), NodePath("SpawnPoint3"), NodePath("SpawnPoint4")]
+SpawnPathsList = [NodePath("../Paths/Path3D0"), NodePath("../Paths/Path3D1"), NodePath("../Paths/Path3D2"), NodePath("../Paths/Path3D3"), NodePath("../Paths/Path3D4")]
 
 [node name="SpawnPoint0" type="Marker3D" parent="WaveManager/WaveSpawner0" unique_id=1752358404]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
@@ -48,13 +121,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -1)
 [node name="SpawnPoint4" type="Marker3D" parent="WaveManager/WaveSpawner0" unique_id=205131596]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
 
-[node name="Gound" type="StaticBody3D" parent="." unique_id=696486230]
+[node name="Paths" type="Node3D" parent="WaveManager" unique_id=2032155246]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Gound" unique_id=2047381059]
-mesh = SubResource("PlaneMesh_fv17d")
+[node name="Path3D0" type="Path3D" parent="WaveManager/Paths" unique_id=197666016]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8999634, 0.5494385, 0.8260498)
+curve = SubResource("Curve3D_vvhx7")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Gound" unique_id=2081964659]
-shape = SubResource("BoxShape3D_xrrc5")
+[node name="Path3D1" type="Path3D" parent="WaveManager/Paths" unique_id=953394964]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6582031, 0, 0.23925781)
+curve = SubResource("Curve3D_2stuw")
+
+[node name="Path3D2" type="Path3D" parent="WaveManager/Paths" unique_id=47406732]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5013428)
+curve = SubResource("Curve3D_i7nqi")
+
+[node name="Path3D3" type="Path3D" parent="WaveManager/Paths" unique_id=353803016]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+curve = SubResource("Curve3D_1qwuh")
+
+[node name="Path3D4" type="Path3D" parent="WaveManager/Paths" unique_id=2057503393]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.590332, 0, 0)
+curve = SubResource("Curve3D_hnytf")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=914300943]
 environment = SubResource("Environment_vvhx7")

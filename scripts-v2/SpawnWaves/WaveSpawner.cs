@@ -1,5 +1,6 @@
 using Godot;
 using Godot.Collections;
+using System;
 using System.Threading.Tasks;
 
 public partial class WaveSpawner : Node3D
@@ -8,6 +9,11 @@ public partial class WaveSpawner : Node3D
     
     // Lista de Markers en la escena (deben ser 5 para coincidir con el Resource)
     [Export] public Array<Marker3D> SpawnPointsList;
+    [Export] public Array<Path3D> SpawnPathsList;
+
+    //key: PathName, Value: la lista de los puntos a nivel global position que tiene
+    public Dictionary<String,Array<Vector3>> SpawnPointsByPathName = new Dictionary<String,Array<Vector3>>();
+
 
     // Referencia al Grid para inyectar a los enemigos (opcional, según tu arquitectura)
     // [Export] public SpatialGridManager GridManager;
@@ -18,6 +24,28 @@ public partial class WaveSpawner : Node3D
         if (SpawnPointsList.Count != 5)
         {
             GD.PrintErr($"WaveSpawner [{spawnerId}]: Se esperan exactamente 5 SpawnPoints, pero hay {SpawnPointsList.Count}.");
+        }
+        CacheSpawnPoints();
+    }
+
+    private void CacheSpawnPoints()
+    {
+        SpawnPointsByPathName.Clear();
+        if (SpawnPathsList == null) return;
+
+        foreach (var path in SpawnPathsList)
+        {
+            if (path?.Curve == null) continue;
+            
+            var points = path.Curve.GetBakedPoints();
+            if (points == null) continue;
+
+            var globalPoints = new Array<Vector3>();
+            foreach (var point in points)
+            {
+                globalPoints.Add(path.ToGlobal(point));
+            }
+            SpawnPointsByPathName[path.Name] = globalPoints;
         }
     }
 
